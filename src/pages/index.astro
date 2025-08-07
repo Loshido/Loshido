@@ -1,7 +1,34 @@
 ---
 import Html from '../layouts/html.astro';
+import "../styles/main.css"
+
+import FallingStars from '../components/FallingStars.astro';
+import LinkedIn from "../assets/main/linkedin.svg"
+import Github from "../assets/main/github.svg"
 ---
 
 <Html>
-    Hello, Wold!
+    <section id="hero" class="min-h-dvh w-full 
+        xl:px-64 xl:py-36 lg:px-56 lg:py-28 md:px-36 md:py-24
+        sm:px-24 sm:py-16 px-12 py-8">
+        <h1 class="xl:text-8xl lg:text-6xl md:text-5xl text-4xl text-white font-semibold">
+            Livio Ardoin
+        </h1>
+        <div class="text-dark-pink stroke-dark-pink font-medium
+            flex flex-row gap-4 items-center">
+            <h3 class="xl:text-4xl lg:text-2xl sm:text-lg uppercase">
+                LOSHIDO
+            </h3>
+            <a href="" class="hover:bg-white/10 p-1.5 transition-colors">
+                <Github/>
+            </a>
+            <a href="" class="hover:bg-white/10 p-1.5 transition-colors">
+                <LinkedIn/>
+            </a>
+        </div>
+        <FallingStars/>
+    </section>
+    <section class="h-dvh">
+
+    </section>
 </Html>

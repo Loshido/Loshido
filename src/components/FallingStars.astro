@@ -1,0 +1,65 @@
+<div id="falling-stars" 
+    class="absolute top-0 right-0 overflow-hidden w-3/5 h-full z-10 pointer-events-none">
+    <style is:global>
+        #falling-stars > p{
+            transform: rotate(90deg);
+            transform-origin: top left;
+            font-size: 24px;
+            position: absolute;
+            top: 0;
+            opacity: 0;
+
+            mix-blend-mode: soft-light;
+            background: linear-gradient(90deg, #fff0 35%, #fff4 45%, #fff4 55%, #fff0 65%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fall 15s linear infinite;
+        }
+
+        @keyframes fall {
+            from { background-position: 200% 0; }
+            5% { opacity: 1; }
+            95% { opacity: 1; }
+            to { background-position: -100% 0; }
+        }
+
+    </style>
+    <script>
+        const rand = (max: number) => Math.floor(Math.random() * max)
+        let chain = ''
+        const parent = document.getElementById('falling-stars')
+        for(let i = 0; i < 15; i++) {
+            chain += (rand(10E4) + 10E12).toString(2)
+        }
+
+        const secret = rand(chain.length)
+        chain = chain.slice(0, secret) + "🛰️" + chain.slice(secret)
+
+        const span = document.createElement('span')
+        span.style.font = '24px jetbrains'
+        span.style.visibility = 'hidden'
+        span.style.position = 'absolute'
+        span.textContent = '1'
+
+        document.body.appendChild(span)
+        const char = span.getBoundingClientRect().width
+        document.body.removeChild(span)
+
+        const height = window.innerHeight
+        const length = Math.ceil(height / char)
+
+        for(let i = 0; i < 15; i++) {
+            const p = document.createElement('p')
+
+            const from = rand(chain.length - length)
+            p.innerText = chain.slice(from, from + length)
+
+            const duraction = 5 + rand(15)
+            p.style.animationDuration = duraction + 's'
+            p.style.animationDelay = rand(duraction) + 's'
+            p.style.left = rand(100) + '%'
+            parent?.appendChild(p)
+        }
+    </script>
+</div>
