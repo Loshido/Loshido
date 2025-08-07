@@ -1,0 +1,26 @@
+{
+    "imports": {
+        "@astrojs/mdx": "npm:@astrojs/mdx",
+        "@astrojs/sitemap": "npm:@astrojs/sitemap",
+        "@deno/astro-adapter": "npm:@deno/astro-adapter@^0.3.1",
+        "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.11",
+        "astro": "npm:astro",
+        "sharp": "npm:sharp",
+        "tailwindcss": "npm:tailwindcss@^4.1.11"
+    },
+    "nodeModulesDir": "auto",
+    "tasks": {
+        "dev": "deno -A astro dev",
+        "build": "deno -A astro build",
+        "preview": "deno run --allow-net --allow-read --allow-ffi --allow-env ./dist/server/entry.mjs",
+        "astro": "deno -A astro"
+    },
+    "include": [".astro/types.d.ts", "**/*"],
+    "exclude": ["dist"],
+    "compilerOptions": {
+        "strictNullChecks": true,
+        "strict": true,
+        "verbatimModuleSyntax": true,
+        "jsx": "preserve"
+    }
+}
