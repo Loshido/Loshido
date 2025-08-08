@@ -6,7 +6,9 @@
         "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.11",
         "astro": "npm:astro",
         "sharp": "npm:sharp",
-        "tailwindcss": "npm:tailwindcss@^4.1.11"
+        "tailwindcss": "npm:tailwindcss@^4.1.11",
+
+        "assets/": "./src/assets/"
     },
     "nodeModulesDir": "auto",
     "tasks": {

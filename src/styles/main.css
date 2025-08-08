@@ -20,3 +20,69 @@
     opacity: 0.75;
     background: linear-gradient(8deg, #ffffff00 30%, #5B0708 120%);
 }
+
+#hero h1{
+    overflow: hidden;
+    width: fit-content;
+}
+#hero h1 span{
+    display: block;
+    animation: slide-right 1s ease;
+}
+
+@keyframes slide-right {
+    from { 
+        opacity: 0;
+        transform: translateX(-100%); }
+    to { 
+        opacity: 1;
+        transform: translateX(0); }
+}
+
+@keyframes slide-in {
+    from { 
+        opacity: 0;
+        transform: translateY(-10px); }
+    to { 
+        opacity: 1;
+        transform: translateY(0); }
+}
+
+#content div{
+    display: none;
+    pointer-events: none;
+}
+@media (width > 1400px) {
+    #content > p > span::after{
+        inset: -16px;
+        content: '';
+        position: absolute;
+        transition: inset .4s ease;
+    }
+
+    #content p:has(span) {
+        transition: padding .4s ease;
+    }
+    #content p:has(span:hover) {
+        padding: 64px 0;
+    }
+    #content p > span:hover::after {
+        inset: -80px -16px;
+    }
+    #content p:has(span:hover) + div{
+        display: block;
+        animation: slide-in 1s ease;
+    }
+}
+
+/*  */
+/* #content p:has(span) {
+    padding: 64px 0;
+}
+#content p > span::after {
+    inset: -80px -16px;
+}
+#content p:has(span) + div{
+    display: block;
+} */
+/*  */

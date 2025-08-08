@@ -1,5 +1,5 @@
 <div id="falling-stars" 
-    class="absolute top-0 right-0 overflow-hidden w-3/5 h-full z-10 pointer-events-none">
+    class="absolute top-0 right-0 overflow-hidden sm:w-3/5 w-2/5 h-full z-10 pointer-events-none">
     <style is:global>
         #falling-stars > p{
             transform: rotate(90deg);
@@ -11,17 +11,17 @@
 
             mix-blend-mode: soft-light;
             background: linear-gradient(90deg, #fff0 35%, #fff4 45%, #fff4 55%, #fff0 65%);
-            background-size: 200% 100%;
+            background-size: 300% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: fall 15s linear infinite;
         }
 
         @keyframes fall {
-            from { background-position: 200% 0; }
+            from { background-position: 300% 0; }
             5% { opacity: 1; }
             95% { opacity: 1; }
-            to { background-position: -100% 0; }
+            to { background-position: 0% 0; }
         }
 
     </style>
@@ -48,8 +48,19 @@
 
         const height = window.innerHeight
         const length = Math.ceil(height / char)
+        let n = 15
+        switch(Math.floor(window.innerWidth / 300)) {
+            case 3:
+                n = 10
+                break;
+            case 2:
+                n = 4
+                break;
+            case 1:
+                n = 3;
+        }
 
-        for(let i = 0; i < 15; i++) {
+        for(let i = 0; i < n; i++) {
             const p = document.createElement('p')
 
             const from = rand(chain.length - length)
@@ -57,8 +68,8 @@
 
             const duraction = 5 + rand(15)
             p.style.animationDuration = duraction + 's'
-            p.style.animationDelay = rand(duraction) + 's'
-            p.style.left = rand(100) + '%'
+            p.style.animationDelay = rand(duraction - 5) + 's'
+            p.style.left = 5 + rand(90) + '%'
             parent?.appendChild(p)
         }
     </script>
