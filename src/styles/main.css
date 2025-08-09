@@ -42,47 +42,39 @@
 @keyframes slide-in {
     from { 
         opacity: 0;
-        transform: translateY(-10px); }
+    }
     to { 
         opacity: 1;
-        transform: translateY(0); }
+        margin-bottom: 0;
+    }
 }
 
-#content div{
+#content > div > span > div{
     display: none;
     pointer-events: none;
 }
-@media (width > 1400px) {
-    #content > p > span::after{
-        inset: -16px;
-        content: '';
-        position: absolute;
-        transition: inset .4s ease;
-    }
+#content > div > span::after{
+    inset: -16px;
+    content: '';
+    position: absolute;
+    transition: inset .4s ease;
+}
 
-    #content p:has(span) {
-        transition: padding .4s ease;
-    }
-    #content p:has(span:hover) {
+#content > div:has(span) {
+    transition: padding .4s ease;
+}
+@media (width > 600px) {
+    #content > div:has(span:hover) {
         padding: 64px 0;
     }
-    #content p > span:hover::after {
+    
+    #content > div > span:hover::after{
         inset: -80px -16px;
     }
-    #content p:has(span:hover) + div{
-        display: block;
+    
+    #content div > span:hover > div{
+        display: inline-block;
+        pointer-events: none;
         animation: slide-in 1s ease;
     }
 }
-
-/*  */
-/* #content p:has(span) {
-    padding: 64px 0;
-}
-#content p > span::after {
-    inset: -80px -16px;
-}
-#content p:has(span) + div{
-    display: block;
-} */
-/*  */
