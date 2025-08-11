@@ -1,18 +1,27 @@
-const FETCH = 'git fetch origin production'
-const CHECKOUT = 'git checkout production'
-const RESET = 'git reset --hard origin/production'
-
 export const checkout = (signal?: AbortSignal) => {
-    
-    const command = new Deno.Command(
-        [FETCH, CHECKOUT, RESET].join(' && '),
-        {
-            stderr: "inherit",
-            signal
-        }
-    )
+    const fetch = new Deno.Command('git', {
+        args: ['fetch', 'origin', 'production'],
+        stderr: 'inherit',
+        signal
+    })
+    const fetched = fetch.outputSync().success
+    if(!fetched) return false
 
-    const output = command.outputSync()
+    const checkout = new Deno.Command('git', {
+        args: ['checkout', 'production'],
+        stderr: 'inherit',
+        signal
+    })
+    const checked = checkout.outputSync().success
+    if(!checked) return false
 
-    return output.success
+    const reset = new Deno.Command('git', {
+        args: ['reset', '--hard', 'origin/production'],
+        stderr: 'inherit',
+        signal
+    })
+    const hasReset = reset.outputSync().success
+    if(!hasReset) return false
+
+    return true
 }
