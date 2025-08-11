@@ -12,9 +12,9 @@
     },
     "nodeModulesDir": "auto",
     "tasks": {
-        "dev": "deno -A astro dev",
-        "build": "deno -A astro build",
-        "preview": "deno run --allow-net --allow-read --allow-ffi --allow-env ./dist/server/entry.mjs",
+        "dev": "deno --env-file=.env -A astro dev",
+        "build": "deno --env-file=.env -A astro build",
+        "preview": "deno run --env-file=.env --allow-net --allow-run --allow-read --allow-ffi --allow-env ./handle.ts",
         "astro": "deno -A astro"
     },
     "include": [".astro/types.d.ts", "**/*"],

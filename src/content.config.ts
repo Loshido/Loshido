@@ -21,6 +21,7 @@ const blog = defineCollection({
 			date: dateEurope,
 			updatedDate: dateEurope.optional(),
 			image: a.image().or(z.literal("placeholder")),
+            private: z.string().optional()
 		}),
 });
 

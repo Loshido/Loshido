@@ -1,28 +1,22 @@
 ---
 import Page from '../../layouts/page.astro';
 import "../../styles/article.css"
-export const prerender = true;
+import { getEntry, render } from "astro:content";
+export const prerender = false;
 
-import type { GetStaticPaths } from "astro";
-import { getCollection, render } from "astro:content";
+const post = await getEntry("blog", Astro.params.slug)
+if(post === undefined) return Astro.redirect("/blog")
+if(post.data.private && Astro.url.searchParams.get('key') !== post.data.private) {
+    return Astro.redirect("/blog")
+}
 
-export const getStaticPaths = (async () => {
-    const posts = await getCollection('blog')
-    
-    return posts.map(post => ({
-        params: { slug: post.id },
-        props: { post }
-    }))
-}) satisfies GetStaticPaths;
+const { Content } = await render(post)
 
 type Headings = {
     depth: number,
     slug: string,
     text: string
 }[]
-
-const { post } = Astro.props
-const { Content } = await render(post)
 ---
 
 <Page nav={[

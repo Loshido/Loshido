@@ -17,7 +17,7 @@ const { title, description, date, href, ...props } = Astro.props;
     <h2 class="text-xl font-semibold">
         { title }
     </h2>
-    <p class="mt-2 opacity-50 text-sm">
+    <p class="mt-2 opacity-50 text-sm mix-blend-hard-light">
         {
             date ? date.toLocaleDateString('fr-FR', { dateStyle: 'short' }) + ' - ' : ''
         }

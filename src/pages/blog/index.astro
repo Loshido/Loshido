@@ -4,7 +4,7 @@ import Page from '../../layouts/page.astro';
 import { getCollection } from 'astro:content';
 import Card from '../../components/Card.astro';
 const posts = (await getCollection('blog'))
-    .filter(a => a.data.date.getTime() < Date.now())
+    .filter(a => a.data.date.getTime() < Date.now() && a.data.private === undefined)
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 ---
 

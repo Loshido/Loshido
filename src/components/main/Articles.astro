@@ -3,7 +3,7 @@ import Card from "../Card.astro"
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection('blog'))
-    .filter(a => a.data.date.getTime() < Date.now())
+    .filter(a => a.data.date.getTime() < Date.now() && a.data.private === undefined)
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
     .slice(0, 2)
 ---
