@@ -7,12 +7,19 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://loshido.me',
-  integrations: [mdx(), sitemap()],
-  adapter: deno(),
-  output: 'server',
-
-  vite: {
-    plugins: [tailwindcss()]
-  }
+    site: 'https://loshido.me',
+    integrations: [mdx(), sitemap()],
+    adapter: deno(),
+    output: 'server',
+    server: {
+        allowedHosts: ['echo']
+    },
+    vite: {
+        plugins: [...tailwindcss()]
+    },
+    markdown: {
+        shikiConfig: {
+            theme: 'github-dark-default'
+        }
+    }
 });

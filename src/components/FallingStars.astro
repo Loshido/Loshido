@@ -1,6 +1,9 @@
 <div id="falling-stars" 
     class="absolute top-0 right-0 overflow-hidden sm:w-3/5 w-2/5 h-full z-10 pointer-events-none">
     <style is:global>
+        :root{
+            --stars: #fff4;
+        }
         #falling-stars > p{
             transform: rotate(90deg);
             transform-origin: top left;
@@ -10,7 +13,7 @@
             opacity: 0;
 
             mix-blend-mode: soft-light;
-            background: linear-gradient(90deg, #fff0 35%, #fff4 45%, #fff4 55%, #fff0 65%);
+            background: linear-gradient(90deg, #fff0 35%, var(--stars) 45%, var(--stars) 55%, #fff0 65%);
             background-size: 300% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -66,7 +69,7 @@
             const from = rand(chain.length - length)
             p.innerText = chain.slice(from, from + length)
 
-            const duraction = 5 + rand(15)
+            const duraction = 5 + rand(20)
             p.style.animationDuration = duraction + 's'
             p.style.animationDelay = rand(duraction - 5) + 's'
             p.style.left = 5 + rand(90) + '%'

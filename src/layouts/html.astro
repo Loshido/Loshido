@@ -1,6 +1,12 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+interface Props { 
+    class?: string,
+    style?: string
+}
+const props = Astro.props
 ---
 
 <!doctype html>
@@ -8,7 +14,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body class="w-dvw overflow-x-hidden">
+	<body class:list={["w-dvw overflow-x-hidden", props.class]} style={ props.style }>
         <slot />
 	</body>
 </html>

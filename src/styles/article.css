@@ -1,0 +1,108 @@
+@reference "./global.css";
+
+article{
+    @apply md:px-12 md:py-8 pl-3 pt-2 w-full;
+}
+
+article p{
+    @apply my-2;
+}
+article :not(pre) :is(code, kbd){
+    @apply px-1 py-0.5 bg-dark-pink/25;
+}
+
+article h1{
+    @apply lg:text-8xl md:text-6xl text-5xl font-bold
+        md:leading-28 leading-16;
+}
+article h2{
+    @apply lg:text-6xl md:text-5xl text-3xl font-semibold
+        md:leading-24 leading-20;
+}
+article h3{
+    @apply lg:text-5xl md:text-4xl text-2xl font-semibold
+        md:leading-20 leading-16;
+}
+article h4{
+    @apply lg:text-4xl md:text-3xl text-xl font-semibold
+        md:leading-20 leading-16;
+}
+article h5{
+    @apply lg:text-3xl md:text-2xl text-xl font-medium
+        md:leading-16 leading-12;
+}
+article h6{
+    @apply lg:text-2xl md:text-xl text-lg font-medium
+        md:leading-12 leading-10;
+}
+
+article blockquote{
+    @apply px-4 py-2 bg-dark-pink/15;
+}
+
+article cite{
+    @apply italic font-extralight
+}
+
+article table{
+    @apply border-collapse;
+}
+
+article table :is(th, td) {
+    @apply px-4 py-2
+}
+article table tr > td {
+    @apply border border-dark-pink/15
+}
+article pre:has(code){
+    @apply px-4 py-3;
+}
+article pre > code{
+    @apply font-jetbrains;
+}
+
+article ol {
+    @apply list-decimal list-inside ml-2;
+}
+
+article ul{
+    @apply list-[square] list-inside ml-2;
+}
+
+article li > ul {
+    @apply ml-4;
+}
+
+article abbr {
+    @apply underline-offset-4 decoration-dark-pink;
+}
+
+article mark {
+    @apply bg-pink-300;
+}
+
+article .footnotes h2 {
+    @apply text-base mt-8 leading-6;
+}
+
+nav a[data-depth="2"]{
+    @apply mr-8;
+}
+nav a[data-depth="3"]{
+    @apply mr-16;
+}
+
+nav a::before{
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 8px;
+    
+    width: 2px;
+    height: 100%;
+    background-color: #0002;
+    transition: width .1s ease;
+}
+
+nav a:hover::before{ width: 100%; }

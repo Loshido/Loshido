@@ -1,4 +1,6 @@
 ---
+import Page from '../../layouts/page.astro';
+import "../../styles/article.css"
 export const prerender = true;
 
 import type { GetStaticPaths } from "astro";
@@ -13,13 +15,40 @@ export const getStaticPaths = (async () => {
     }))
 }) satisfies GetStaticPaths;
 
+type Headings = {
+    depth: number,
+    slug: string,
+    text: string
+}[]
 
 const { post } = Astro.props
 const { Content } = await render(post)
 ---
 
-<h1>
-    { post.data.title }
-</h1>
+<Page nav={[
+    {
+        href: '/blog',
+        label: 'Blog'
+    }
+]}>
+    <article class="z-50 relative">
+        {
+            post.rendered && post.rendered.metadata && 'headings' in post.rendered.metadata && <aside 
+                class="absolute right-full h-full lg:block hidden">
+                <nav
+                    class="sticky top-4 right-full z-50 my-4 items-end flex flex-col
+                        xl:w-64 lg:w-56 md:w-36 sm:w-24 w-12">
+                    {
+                        (post.rendered.metadata.headings as Headings)
+                            .filter(h => h.depth < 4)
+                            .map(h => <a class="text-right relative py-0.5 pr-4"
+                                href={`#${h.slug}`} data-depth={h.depth}>{ h.text }
+                            </a>)
+                    }
+                </nav>
 
-<Content/>
+            </aside>
+        }
+        <Content/>
+    </article>
+</Page>

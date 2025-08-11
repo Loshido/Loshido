@@ -1,41 +1,28 @@
 ---
-import Html from '../../layouts/html.astro';
-import "../../styles/blog.css"
-
-import Exit from "../../assets/blog/exit.svg"
-import FallingStars from '../../components/main/FallingStars.astro';
+import Page from '../../layouts/page.astro';
 
 import { getCollection } from 'astro:content';
-import Card from '../../components/main/Card.astro';
+import Card from '../../components/Card.astro';
 const posts = (await getCollection('blog'))
     .filter(a => a.data.date.getTime() < Date.now())
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 ---
 
-<Html>
-    <main id="blog" class="min-h-[80dvh] w-full 
-        xl:px-64 xl:py-36 lg:px-56 lg:py-28 md:px-36 md:py-24
-        sm:px-24 sm:py-16 px-12 py-12 overflow-hidden">
-        <div class="absolute w-0.5 h-dvh top-0 
-            bg-gradient-to-b from-white/25 from-60% to-white/0"/>
-        <a href="/"
-            class="p-2 text-dark-pink xl:text-2xl lg:text-xl text-lg font-semibold uppercase
-                flex flex-row items-center gap-2 hover:text-dark-pink/50 transition-colors">
-            <Exit/>
-            Homepage
-        </a>
-        <div class="w-1/3 h-0.5 ml-0.5 bg-gradient-to-r from-white/25 to-white/0"/>
-        <section class="w-full h-full p-5 gap-5 relative z-20
-            flex flex-col lg:grid lg:grid-cols-2 2xl:grid-cols-3 text-white">
-            {
-                posts.map(post => <Card
-                    title={ post.data.title }
-                    description={ post.data.description }
-                    date={post.data.date}
-                    href={ '/blog/' + post.id }
-                    image={ post.data.image as ImageMetadata | 'placeholder' }/>)
-            }
-        </section>
-        <FallingStars/>
-    </main>
-</Html>
+<Page nav={[
+    {
+        href: "/",
+        label: "Homepage"
+    }
+]}>
+    <section class="w-full h-auto p-5 gap-5 relative z-20
+        flex flex-col lg:grid lg:grid-cols-2 2xl:grid-cols-3 text-white">
+        {
+            posts.map(post => <Card
+                title={ post.data.title }
+                description={ post.data.description }
+                date={post.data.date}
+                href={ '/blog/' + post.id }
+                image={ post.data.image as ImageMetadata | 'placeholder' }/>)
+        }
+    </section>
+</Page>

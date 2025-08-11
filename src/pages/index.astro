@@ -4,7 +4,7 @@ import "../styles/main.css"
 
 import Hero from '../components/main/Hero.astro';
 import Me from "../components/main/Me.astro"
-import FallingStars from '../components/main/FallingStars.astro';
+import FallingStars from '../components/FallingStars.astro';
 
 import Articles from "../components/main/Articles.astro"
 import Montains from '../components/main/Montains.astro';
@@ -18,10 +18,6 @@ import Montains from '../components/main/Montains.astro';
         <Me/>
         <FallingStars/>
     </main>
-    <section class="h-2/3 w-full 
-        xl:px-64 xl:py-36 lg:px-56 lg:py-28 md:px-36 md:py-24
-        sm:px-24 sm:py-16 px-12 py-12 overflow-hidden">
-        <Articles/>
-    </section>
+    <Articles/>
     <Montains/>
 </Html>

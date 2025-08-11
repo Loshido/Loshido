@@ -10,6 +10,9 @@
     --font-jetbrains: "jetbrains";
     --color-dark-pink: #5E3A4F;
 }
+html,body{
+    height: 100%;
+}
 
 @media (prefers-reduced-motion: no-preference) {
     html{
