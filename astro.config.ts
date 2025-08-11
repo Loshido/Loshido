@@ -9,10 +9,13 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
     site: 'https://loshido.me',
     integrations: [mdx(), sitemap()],
-    adapter: deno(),
+    adapter: deno({
+        port: 80
+    }),
     output: 'server',
     server: {
-        allowedHosts: ['echo']
+        allowedHosts: ['echo'],
+        port: 80
     },
     vite: {
         plugins: [...tailwindcss()]
