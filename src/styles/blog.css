@@ -1,0 +1,36 @@
+#blog{
+    position: relative;
+}
+
+#blog::after, #blog::before{
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 100%;
+}
+#blog::after{
+    opacity: 0.5;
+    background: linear-gradient(-10deg, #ffffff00 30%, #5B0753C0 110%);
+}
+#blog::before{
+    opacity: 0.75;
+    background: linear-gradient(8deg, #ffffff00 30%, #5B0708C0 120%);
+}
+
+#blog h1{
+    overflow: hidden;
+    width: fit-content;
+}
+#blog h1 span{
+    display: block;
+    animation: slide-right 1s ease;
+}
+
+#blog ::selection{
+    background-color: #fff4;
+    mix-blend-mode: overlay;
+}

@@ -11,11 +11,6 @@
     --color-dark-pink: #5E3A4F;
 }
 
-::selection{
-    background-color: #fff4;
-    mix-blend-mode: overlay;
-}
-
 @media (prefers-reduced-motion: no-preference) {
     html{
         scroll-behavior: smooth;

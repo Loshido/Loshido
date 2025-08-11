@@ -1,0 +1,29 @@
+---
+import Card from "./Card.astro"
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection('blog'))
+    .filter(a => a.data.date.getTime() < Date.now())
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .slice(0, 2)
+---
+
+<h1 class="text-dark-pink font-semibold px-2
+            lg:text-2xl md:text-xl sm:text-lg md:leading-10 leading-8">
+    A piece of thought...
+</h1>
+
+<div class="flex flex-col lg:grid lg:grid-cols-2 2xl:grid-cols-3 pt-4 gap-4 text-white">
+    {
+        posts.map(post => <Card
+            title={ post.data.title }
+            description={ post.data.description }
+            href={ '/blog/' + post.id }
+            image={ post.data.image as ImageMetadata | 'placeholder' }/>)
+    }
+    <a class="w-full h-full text-dark-pink flex items-center justify-center aspect-video
+        text-6xl font-black uppercase hover:bg-dark-pink/10 transition-colors duration-500"
+        href="/blog">
+        See more
+    </a>
+</div>

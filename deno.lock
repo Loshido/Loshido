@@ -16,9 +16,9 @@
     "npm:@astrojs/mdx@*": "4.3.3_astro@5.12.8__vite@6.3.5___picomatch@4.0.3__zod@3.25.76_acorn@8.15.0",
     "npm:@astrojs/sitemap@*": "3.4.2",
     "npm:@deno/astro-adapter@~0.3.1": "0.3.1_astro@5.12.8__vite@6.3.5___picomatch@4.0.3__zod@3.25.76",
-    "npm:@tailwindcss/vite@^4.1.11": "4.1.11_vite@6.3.5__picomatch@4.0.3",
+    "npm:@tailwindcss/vite@^4.1.11": "4.1.11_vite@7.0.6__picomatch@4.0.3",
     "npm:astro@*": "5.12.8_vite@6.3.5__picomatch@4.0.3_zod@3.25.76",
-    "npm:sharp@*": "0.34.3",
+    "npm:sharp@~0.34.3": "0.34.3",
     "npm:tailwindcss@^4.1.11": "4.1.11"
   },
   "jsr": {
@@ -928,13 +928,13 @@
       ],
       "scripts": true
     },
-    "@tailwindcss/vite@4.1.11_vite@6.3.5__picomatch@4.0.3": {
+    "@tailwindcss/vite@4.1.11_vite@7.0.6__picomatch@4.0.3": {
       "integrity": "sha512-RHYhrR3hku0MJFRV+fN2gNbDNEh3dwKvY8XJvTxCSXeMOsCRSr+uKvDWQcbizrHgjML6ZmTE5OwMrl5wKcujCw==",
       "dependencies": [
         "@tailwindcss/node",
         "@tailwindcss/oxide",
         "tailwindcss",
-        "vite"
+        "vite@7.0.6_picomatch@4.0.3"
       ]
     },
     "@tybys/wasm-util@0.10.0": {
@@ -1123,7 +1123,7 @@
         "unist-util-visit",
         "unstorage",
         "vfile",
-        "vite",
+        "vite@6.3.5_picomatch@4.0.3",
         "vitefu",
         "xxhash-wasm",
         "yargs-parser",
@@ -3100,13 +3100,28 @@
       ],
       "bin": true
     },
+    "vite@7.0.6_picomatch@4.0.3": {
+      "integrity": "sha512-MHFiOENNBd+Bd9uvc8GEsIzdkn1JxMmEeYX35tI3fv0sJBUTfW5tQsoaOwuY4KhBI09A3dUJ/DXf2yxPVPUceg==",
+      "dependencies": [
+        "esbuild",
+        "fdir",
+        "picomatch@4.0.3",
+        "postcss",
+        "rollup",
+        "tinyglobby"
+      ],
+      "optionalDependencies": [
+        "fsevents"
+      ],
+      "bin": true
+    },
     "vitefu@1.1.1_vite@6.3.5__picomatch@4.0.3": {
       "integrity": "sha512-B/Fegf3i8zh0yFbpzZ21amWzHmuNlLlmJT6n7bu5e+pCHUKQIfXSYokrqOBGEMMe9UG2sostKQF9mml/vYaWJQ==",
       "dependencies": [
-        "vite"
+        "vite@6.3.5_picomatch@4.0.3"
       ],
       "optionalPeers": [
-        "vite"
+        "vite@6.3.5_picomatch@4.0.3"
       ]
     },
     "web-namespaces@2.0.1": {
@@ -3187,7 +3202,7 @@
       "npm:@deno/astro-adapter@~0.3.1",
       "npm:@tailwindcss/vite@^4.1.11",
       "npm:astro@*",
-      "npm:sharp@*",
+      "npm:sharp@~0.34.3",
       "npm:tailwindcss@^4.1.11"
     ]
   }

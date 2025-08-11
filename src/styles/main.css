@@ -14,7 +14,7 @@
 }
 #hero::after{
     opacity: 0.5;
-    background: linear-gradient(-10deg, #ffffff00 25%, #5B0753 110%);
+    background: linear-gradient(-10deg, #ffffff00 30%, #5B0753 110%);
 }
 #hero::before{
     opacity: 0.75;
@@ -28,6 +28,15 @@
 #hero h1 span{
     display: block;
     animation: slide-right 1s ease;
+}
+
+#hero ::selection{
+    background-color: #fff4;
+    mix-blend-mode: overlay;
+}
+
+::selection{
+    background-color: #5B075360;
 }
 
 @keyframes slide-right {

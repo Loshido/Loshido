@@ -1,18 +1,26 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const dateEurope = z.preprocess((val) => {
+    if(typeof val !== 'string') return val
+
+    const match = val.match(/^(\d{2})\/(\d{2})\/(\d{4})$/)
+    if(!match) return val
+
+    const [, day, month, year] = match
+
+    return new Date(Number(year), Number(month) - 1, Number(day))
+}, z.date())
+
 const blog = defineCollection({
-	// Load Markdown and MDX files in the `src/content/blog/` directory.
-	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
-	// Type-check frontmatter using a schema
-	schema: ({ image }) =>
+	loader: glob({ base: './content', pattern: '**/*.{md,mdx}' }),
+	schema: (a) =>
 		z.object({
 			title: z.string(),
 			description: z.string(),
-			// Transform string to Date object
-			pubDate: z.coerce.date(),
-			updatedDate: z.coerce.date().optional(),
-			heroImage: image().optional(),
+			date: dateEurope,
+			updatedDate: dateEurope.optional(),
+			image: a.image().or(z.literal("placeholder")),
 		}),
 });
 
