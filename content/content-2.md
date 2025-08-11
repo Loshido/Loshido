@@ -1,5 +1,5 @@
 ---
-title: 'Content 1'
+title: 'Content 2'
 description: 'Description'
 date: '02/08/2025'
 image: 'placeholder'
