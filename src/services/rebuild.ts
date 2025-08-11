@@ -2,9 +2,9 @@ export default (signal?: AbortSignal) => {
     const cmd = new Deno.Command("deno", {
         args: ["task", "build"],
         signal,
-        stdout: "inherit",
+        stdout: "null",
         stderr: "inherit",
-        stdin: 'null'
+        stdin: "null"
     })
 
 
