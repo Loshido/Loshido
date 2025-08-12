@@ -5,6 +5,7 @@
         "@deno/astro-adapter": "npm:@deno/astro-adapter@^0.3.1",
         "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.11",
         "astro": "npm:astro",
+        "astro-og": "npm:astro-og@^0.3.0",
         "sharp": "npm:sharp@^0.34.3",
         "tailwindcss": "npm:tailwindcss@^4.1.11",
 

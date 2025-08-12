@@ -5,7 +5,7 @@ article{
 }
 
 article p{
-    @apply my-2;
+    @apply my-4;
 }
 article :not(pre) :is(code, kbd){
     @apply px-1 py-0.5 bg-dark-pink/25;
@@ -37,7 +37,11 @@ article h6{
 }
 
 article blockquote{
-    @apply px-4 py-2 bg-dark-pink/15;
+    @apply px-4 py-2 my-4 bg-dark-pink/15;
+}
+
+article li {
+    @apply my-1.5
 }
 
 article cite{
@@ -45,7 +49,7 @@ article cite{
 }
 
 article table{
-    @apply border-collapse;
+    @apply border-collapse overflow-scroll max-w-full;
 }
 
 article table :is(th, td) {
@@ -85,11 +89,23 @@ article .footnotes h2 {
     @apply text-base mt-8 leading-6;
 }
 
+article hr {
+    @apply my-8 w-1/3 border rounded
+}
+
+article a {
+    @apply text-dark-pink hover:opacity-75 font-medium transition-opacity
+}
+
+article iframe {
+    @apply max-w-full h-auto aspect-video
+}
+
 nav a[data-depth="2"]{
-    @apply mr-8;
+    @apply mr-4;
 }
 nav a[data-depth="3"]{
-    @apply mr-16;
+    @apply mr-8;
 }
 
 nav a::before{

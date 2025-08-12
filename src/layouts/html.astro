@@ -4,15 +4,18 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 interface Props { 
     class?: string,
-    style?: string
+    style?: string,
+    title?: string,
+    description?: string,
+    image?: ImageMetadata
 }
-const props = Astro.props
+const { title, description, image, ...props } = Astro.props
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={title || SITE_TITLE} description={description || SITE_DESCRIPTION} image={image} />
 	</head>
 	<body class:list={["w-dvw overflow-x-hidden", props.class]} style={ props.style }>
         <slot />

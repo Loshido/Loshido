@@ -19,19 +19,25 @@ type Headings = {
 }[]
 ---
 
-<Page nav={[
-    {
-        href: '/blog',
-        label: 'Blog'
-    }
-]}>
+<Page 
+    nav={[
+        {
+            href: '/blog',
+            label: 'Blog'
+        }
+    ]}
+    title={post.data.title}
+    description={post.data.description}
+    image={post.data.image === 'placeholder' 
+        ? undefined 
+        : post.data.image as ImageMetadata}>
     <article class="z-50 relative">
         {
             post.rendered && post.rendered.metadata && 'headings' in post.rendered.metadata && <aside 
                 class="absolute right-full h-full lg:block hidden">
                 <nav
-                    class="sticky top-4 right-full z-50 my-4 items-end flex flex-col
-                        xl:w-64 lg:w-56 md:w-36 sm:w-24 w-12">
+                    class={`sticky top-4 right-full z-50 my-4 items-end flex flex-col
+                        xl:w-64 lg:w-56 md:w-36 sm:w-24 w-12`}>
                     {
                         (post.rendered.metadata.headings as Headings)
                             .filter(h => h.depth < 4)

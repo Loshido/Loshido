@@ -9,6 +9,7 @@ interface Props {
 	image?: ImageMetadata;
 }
 
+const type = Astro.url.pathname.startsWith('/blog/') ? 'article' : 'website'
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = FallbackImage } = Astro.props;
@@ -33,7 +34,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta name="theme-color" content="#5E3A4F" />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type} />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

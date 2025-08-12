@@ -8,13 +8,17 @@ interface Props {
     nav: {
         label: string,
         href: string
-    }[]
+    }[],
+    title?: string,
+    description?: string,
+    image?: ImageMetadata
 }
 
-const { nav } = Astro.props
+const { nav, title, description, image } = Astro.props
 ---
 
-<Html class={`min-h-[80dvh] w-full h-full
+<Html title={title} description={description} image={image}
+    class={`min-h-[80dvh] w-full h-full
     xl:px-64 lg:px-56 md:px-36
     sm:pl-24 pl-12 py-4 pr-4`}
     style="--stars: #5E3A4F30">
