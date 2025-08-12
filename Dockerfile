@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY deno.json deno.lock ./
 
-RUN apk add --no-cache libstdc++ vips
+RUN apk add --no-cache libstdc++ vips git
 RUN deno install --allow-scripts=npm:sharp npm:sharp && deno install --allow-scripts
 COPY . .
 RUN deno -A astro telemetry disable && deno task build
