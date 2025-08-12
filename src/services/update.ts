@@ -13,6 +13,10 @@ export default (initiator: string, signal?: AbortSignal) => {
     if(!rebuilt) return 'failed to rebuild'
 
     console.info('Checkout & Rebuilt %csuccessfully', "color: #70ffaf")
-    
-    Deno.exit(2)
+
+    setTimeout(() => {
+        Deno.exit(2)
+    }, 1000)
+
+    return 'ok'
 }

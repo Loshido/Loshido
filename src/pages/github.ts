@@ -21,6 +21,7 @@ export const POST: APIRoute = async  ({ request }) => {
     const time = new Date().toLocaleTimeString('fr-FR', { timeStyle: 'medium' })
     console.log(`%c${time}%c [Webhook] Push event (${ body.pusher.name })`, 'color: #0004', 'color: #fff')
     
-    const failed = update(body.pusher.name, request.signal)
-    return new Response(failed, { status: 500 })
+    const response = update(body.pusher.name, request.signal)
+    if(response === 'ok') return new Response(null, { status: 200 })
+    return new Response(response, { status: 500 })
 }
