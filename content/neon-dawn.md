@@ -83,8 +83,11 @@ Here are the instructions for participants
 
 If you encounter any issue, [create an issue on Github](https://github.com/Loshido/neon-dawn/issues/new/choose) so I get notified and I can fix it. 
 
-
 I'm open to contributions or forks too 🤗.
+
+##### *A drawing of the main idea*
+
+![Architecture](./assets/neon-dawn/architecture.png)
 
 ## Gallery
 
@@ -94,7 +97,7 @@ I'm open to contributions or forks too 🤗.
 | ![Weird Orbit](./assets/neon-dawn/weird-orbit.png) | ![Test Orbit](./assets/neon-dawn/test-orbit.png) |
 
 #### Early stage demo 
-<iframe width="600" height="300" src="https://www.youtube-nocookie.com/embed/hstvH9vlXqU?si=yORvLGJMr4Kog65G&amp;controls=0" title="Neon-dawn test" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="600" height="300" loading="lazy" src="https://www.youtube-nocookie.com/embed/hstvH9vlXqU?si=yORvLGJMr4Kog65G&amp;controls=0" title="Neon-dawn test" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 #### Having fun debugging
-<iframe width="600" height="300" src="https://www.youtube-nocookie.com/embed/Vl2YJ6cfW50?si=RKgMHF7a_272qAbc&amp;controls=0" title="Neon-dawn test" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="600" height="300" loading="lazy" src="https://www.youtube-nocookie.com/embed/Vl2YJ6cfW50?si=RKgMHF7a_272qAbc&amp;controls=0" title="Neon-dawn test" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

@@ -31,7 +31,7 @@ type Headings = {
     image={post.data.image === 'placeholder' 
         ? undefined 
         : post.data.image as ImageMetadata}>
-    <article class="z-50 relative">
+    <article class="z-50 relative h-full">
         {
             post.rendered && post.rendered.metadata && 'headings' in post.rendered.metadata && <aside 
                 class="absolute right-full h-full lg:block hidden">
