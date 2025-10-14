@@ -1,10 +1,8 @@
+import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import { defineConfig } from 'astro/config';
 import deno from "@deno/astro-adapter";
-
 import tailwindcss from '@tailwindcss/vite';
-
 import og from 'astro-og';
 
 // https://astro.build/config
@@ -16,7 +14,7 @@ export default defineConfig({
     }),
     output: 'server',
     server: {
-        allowedHosts: ['echo'],
+        allowedHosts: ['echo', 'loshido.me'],
         port: 80
     },
     vite: {
