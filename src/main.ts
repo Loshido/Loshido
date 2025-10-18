@@ -17,7 +17,7 @@ declare global {
 
 const mode: 'ssg' | 'ssr' = ['ssg', 'ssr'].includes(Deno.env.get('MODE') || '') 
     ? Deno.env.get('MODE') as 'ssr' | 'ssg'
-    : 'ssg' 
+    : 'ssr' 
 
 // explore routes & return them
 export async function explore(directory?: string): Promise<Route[]> {

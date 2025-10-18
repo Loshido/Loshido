@@ -9,8 +9,8 @@
 </head>
 <body *mizu class="md:mx-[5dvw] lg:mx-[10dvw] xl:mx-[25dvw]">
     <header class="flex flex-wrap items-center justify-between px-4 md:px-0 py-8 text-sm">
-        <p>Dernière mise à jour : 31 Jeudi 2025</p>
-        <p class="text-black/50">abf85cc6e1b4f9b914b0f66453e5a97a9899a15c</p>
+        <p *mustache>Dernière mise à jour : {{date}}</p>
+        <p class="text-black/50" *text="commit"></p>
     </header>
     <main class="font-virgil">
         <figure class="flex flex-col-reverse items-start p-4 sm:p-0 sm:flex-row sm:items-center sm:justify-around sm:gap-8">

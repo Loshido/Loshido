@@ -20,11 +20,17 @@ export default {
     async generate() {
         const template = await readTemplate('index')
         const heading = await Deno.readTextFile('./templates/heading.svg')
+        const date = new Date().toLocaleDateString('fr-FR', {
+            dateStyle: 'medium'
+        })
+        const commit = Deno.env.get('GIT_HEAD') || '7198db5b4ce36d3c0641764c2848d2252d3a4924'
         if(!template) return null
 
         return await Mizu.render(template, {
             context: {
-                heading
+                heading,
+                date,
+                commit
             }
         })
     }
