@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@font-face {
+    font-family: "virgil";
+    src: url(/assets/Virgil.woff2);
+}
+
+@theme {
+    --font-virgil: 'virgil';
+}
