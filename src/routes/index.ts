@@ -20,6 +20,7 @@ export default {
     async generate() {
         const template = await readTemplate('index')
         const heading = await Deno.readTextFile('./templates/heading.svg')
+        const yama = await Deno.readTextFile('./templates/yama.svg')
         const date = new Date().toLocaleDateString('fr-FR', {
             dateStyle: 'medium'
         })
@@ -30,7 +31,8 @@ export default {
             context: {
                 heading,
                 date,
-                commit
+                commit,
+                yama
             }
         })
     }
