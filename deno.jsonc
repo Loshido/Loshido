@@ -2,6 +2,7 @@
     "tasks": {
         "build": "deno run -A src/build.ts",
         "dev": "deno run -A --watch src/dev.ts",
+        "start": "MODE=ssg deno run -A src/start.ts",
         "tailwind-dev": "deno run -A npm:@tailwindcss/cli -i ./templates/tailwind.css -o ./assets/style/global.css -w",
         "tailwind": "deno run -A npm:@tailwindcss/cli -i ./templates/tailwind.css -o ./assets/style/global.css"
     },

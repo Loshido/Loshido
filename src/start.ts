@@ -1,12 +1,15 @@
 import { serveDir } from "@std/http/file-server"
 
-Deno.env.set('MODE', 'ssg')
 import mapRoutes from "./services/routes.ts"
 const routes = await mapRoutes()
 
-routes.set(new URLPattern({ pathname: '/assets/*'}), (req) => serveDir(req, {
+routes.set(new URLPattern({ pathname: '/assets/*'}), req => serveDir(req, {
     fsRoot: './assets',
     urlRoot: 'assets',
+    showDirListing: false,
+    showIndex: false,
+    showDotfiles: false,
+    quiet: true,
     headers: [
         "cache-control: public, max-age=172800, stale-while-revalidate=86400"
     ]

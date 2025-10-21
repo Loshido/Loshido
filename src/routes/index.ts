@@ -24,7 +24,7 @@ export default {
         const date = new Date().toLocaleDateString('fr-FR', {
             dateStyle: 'medium'
         })
-        const commit = Deno.env.get('GIT_HEAD') || '7198db5b4ce36d3c0641764c2848d2252d3a4924'
+        const commit = Deno.env.get('GIT_HEAD') || '?'
         if(!template) return null
 
         return await Mizu.render(template, {

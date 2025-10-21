@@ -20,7 +20,7 @@ declare global {
 const mode: Mode = ['ssg', 'ssr'].includes(Deno.env.get('MODE') || '') 
     ? Deno.env.get('MODE') as Mode
     : 'ssr' 
-
+    
 const isRouteValid = (obj: unknown) => typeof obj === 'object' && obj !== null &&
     ('path' in obj) && typeof obj.path === 'string' &&
     ('handle' in obj) && typeof obj.handle === 'function'

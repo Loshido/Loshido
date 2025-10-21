@@ -1,10 +1,10 @@
 import { exists } from "@std/fs/exists";
 import { parse } from "@std/yaml/parse"
 
-export const TEMPLATE_PATH = Deno.env.get('TEMPLATE_PATH') || './templates'
-export const PAGE_PATH = Deno.env.get('PAGE_PATH') || './dist'
-export const BLOG_PATH = Deno.env.get('BLOG_PATH') || './blog'
-export const BLOG_MANIFEST_PATH = Deno.env.get('BLOG_MANIFEST_PATH') || './blog/manifest.yml'
+export const TEMPLATE_PATH = './templates'
+export const PAGE_PATH = './dist'
+export const BLOG_PATH = './blog'
+export const BLOG_MANIFEST_PATH = './blog/manifest.yml'
 
 async function readFile(path: string) {
     if(!await exists(path)) 

@@ -27,10 +27,11 @@ export default {
         id = id.startsWith('blog/') ? id.slice(5) : id
 
         const article = await readArticle(id)
-        const template = await readTemplate('blog')
         const meta = await readArticleMeta(id)
+        
+        const template = await readTemplate('blog')
         const back = await Deno.readTextFile('./templates/back.svg')
-        const commit = Deno.env.get('GIT_HEAD') || '7198db5b4ce36d3c0641764c2848d2252d3a4924'
+        const commit = Deno.env.get('GIT_HEAD') || '?'
         if(!article || !template || !meta || !back) return null
 
         const rendered = render(article, {
