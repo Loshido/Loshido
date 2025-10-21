@@ -1,7 +1,6 @@
-// render routes via mizu
 import { serveDir } from "@std/http/file-server"
 import tailwind from "./tailwind.ts"
-import mapRoutes from "./main.ts"
+import mapRoutes from "./routes.ts"
 
 tailwind({ watch: true, quiet: true })
 const routes = await mapRoutes()
@@ -20,7 +19,5 @@ Deno.serve({ port: 80 }, async (req, info) => {
         if(resp !== 'next') return resp
     }
     
-    return serveDir(req, {
-        fsRoot: './templates'
-    })
+    return new Response('Not Found dev.ts')
 })

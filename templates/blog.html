@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title *text="id"></title>
+    <link rel="stylesheet" href="/assets/style/global.css">
+    <link rel="shortcut icon" href="/assets/fav.svg" type="image/svg+xml">
+</head>
+<body *mizu class="md:mx-[5dvw] lg:mx-[10dvw] xl:mx-[15dvw] 2xl:mx-[25vw] min-h-dvh p-8 md:p-0">
+    <header class="flex flex-wrap items-center justify-between sm:py-8 text-sm">
+        <p *mustache>Dernière mise à jour : {{date}}</p>
+        <p class="text-black/50" *text="commit"></p>
+    </header>
+    <p *mustache>
+        {{ id }}
+    </p>
+</body>
+</html>

@@ -2,8 +2,8 @@
     "tasks": {
         "build": "deno run -A src/build.ts",
         "dev": "deno run -A --watch src/dev.ts",
-        "tailwind-dev": "deno run -A npm:@tailwindcss/cli -i ./templates/tailwind.css -o ./assets/global.css -w",
-        "tailwind": "deno run -A npm:@tailwindcss/cli -i ./templates/tailwind.css -o ./assets/global.css"
+        "tailwind-dev": "deno run -A npm:@tailwindcss/cli -i ./templates/tailwind.css -o ./assets/style/global.css -w",
+        "tailwind": "deno run -A npm:@tailwindcss/cli -i ./templates/tailwind.css -o ./assets/style/global.css"
     },
     "nodeModulesDir": "auto",
     "imports": {
@@ -15,5 +15,12 @@
         "@std/http": "jsr:@std/http@^1.0.21",
         "@tailwindcss/cli": "npm:@tailwindcss/cli@^4.1.14",
         "tailwindcss": "npm:tailwindcss@^4.1.14"
+    },
+    "lint": {
+        "rules": {
+            "exclude": [
+                "no-explicit-any"
+            ]
+        }
     }
 }

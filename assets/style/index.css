@@ -32,3 +32,21 @@ article:hover h3::after,
 article:hover:not(:has(h3))::after{
     width: 70%;
 }
+main > p > span{
+    position: relative;
+}
+main > p > span::after{
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+    border-radius: 8px;
+    transition: background-color .5s ease-in-out;
+}
+
+main > p:hover > span::after{
+    background-color: #0002;
+}

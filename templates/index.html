@@ -4,32 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livio Ardoin</title>
-    <link rel="stylesheet" href="/assets/global.css">
-    <link rel="stylesheet" href="/assets/index.css">
+    <link rel="stylesheet" href="/assets/style/global.css">
+    <link rel="stylesheet" href="/assets/style/index.css">
     <link rel="shortcut icon" href="/assets/fav.svg" type="image/svg+xml">
 </head>
-<body *mizu class="md:mx-[5dvw] lg:mx-[10dvw] xl:mx-[25dvw] min-h-dvh p-8 md:p-0">
+<body *mizu class="md:mx-[5dvw] lg:mx-[10dvw] xl:mx-[15dvw] 2xl:mx-[25vw] min-h-dvh p-8 md:p-0">
     <header class="flex flex-wrap items-center justify-between sm:py-8 text-sm">
         <p *mustache>Dernière mise à jour : {{date}}</p>
         <p class="text-black/50" *text="commit"></p>
     </header>
     <main class="font-virgil">
-        <figure class="flex flex-col-reverse items-start py-4 sm:p-0 sm:flex-row sm:items-center sm:justify-around sm:gap-8">
-            <h1 class="text-5xl lg:text-6xl">Livio Ardoin</h1>
-            <div *html="heading" class="*:w-full *:h-full md:h-24 lg:h-32"></div>
+        <figure class="flex flex-col-reverse items-start py-4 sm:p-0 sm:flex-row sm:items-center sm:gap-8">
+            <div class="flex flex-col">
+                <h1 class="text-5xl lg:text-6xl w-fit text-nowrap">Livio Ardoin</h1>
+                <p class="text-black/25">
+                    aka Loshido
+                </p>
+            </div>
+            <div *html="heading" class="*:w-full *:h-full w-full md:h-24 lg:h-32"></div>
         </figure>
-        <p class="text-lg sm:text-2xl leading-12">
-            Tout a commencé avec le développement de jeux vidéo.<br/>
-            Peu après, j'ai réalisé que le web pouvait m'emmener plus loin.<br/>
-            Ensuite, j'ai rencontré des personnes formidables qui m'ont propulsé dans le monde du DevOps et de l'orchestration.<br/>
+        <p class="text-lg sm:text-2xl leading-12 my-16">
+            Tout a commencé avec <span>le développement de jeux vidéo</span>.<br/>
+            Peu après, j'ai réalisé que le <span>web</span> pouvait m'emmener plus loin.<br/>
+            Ensuite, j'ai rencontré des personnes formidables qui m'ont propulsé 
+            dans le monde du <span>DevOps et de l'orchestration</span>.<br/>
             Aujourd'hui, je suis capable de relever tous les défis de l'idée jusqu'au déploiement.
         </p>
     </main>
     <section *html="yama" class="*:w-full my-8 sm:my-16">
     </section>
-    <section class="mt-4 sm:py-8 flex flex-col sm:grid grid-cols-4 md:grid-cols-5 gap-2">
+    <p class="font-virgil text-orange-600">
+        Ce site n'est pas encore fini 🚧
+    </p>
+    <section class="mt-4 sm:my-8 flex flex-col sm:grid grid-cols-4 md:grid-cols-5 gap-2">
         <article class="box col-span-2 p-2">
-            <h3 class="text-xl font-black">
+            <h3 class="text-xl font-black w-fit">
                 An Image Made Just for You
             </h3>
             <p class="font-virgil mt-2 text-xs sm:text-base">
@@ -37,7 +46,7 @@
             </p>
         </article>
         <article class="box col-span-2 p-2">
-            <h3 class="text-xl font-black">
+            <h3 class="text-xl font-black  w-fit">
                 Don't just code it - Watch it fly around Earth
             </h3>
             <p class="font-virgil mt-2 text-xs sm:text-base">

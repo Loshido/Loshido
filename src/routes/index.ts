@@ -17,7 +17,7 @@ export default {
     },
 
     name: 'index',
-    async generate() {
+    async generate(_args: undefined) {
         const template = await readTemplate('index')
         const heading = await Deno.readTextFile('./templates/heading.svg')
         const yama = await Deno.readTextFile('./templates/yama.svg')
@@ -36,4 +36,4 @@ export default {
             }
         })
     }
-} satisfies Route
+} satisfies Route<undefined>

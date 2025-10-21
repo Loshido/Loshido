@@ -1,8 +1,10 @@
 type Handle = (req: Request, url: URLPatternResult, info: Deno.ServeHandlerInfo) => 
     Response | Promise<Response | 'next'> | 'next'
+type Mode = 'ssg' | 'ssr'
+type Routes = Map<URLPattern, Handle>
 
 declare global {
-    interface Route {
+    interface Route<T = unknown> {
         path: string,
 
         // use ssg or ssr
@@ -11,34 +13,32 @@ declare global {
         // template name
         name?: string 
         // generate page (SSG)
-        generate?: () => Promise<string | null>,
+        generate?: (args?: T) => Promise<string | null>,
     }
 }
 
-const mode: 'ssg' | 'ssr' = ['ssg', 'ssr'].includes(Deno.env.get('MODE') || '') 
-    ? Deno.env.get('MODE') as 'ssr' | 'ssg'
+const mode: Mode = ['ssg', 'ssr'].includes(Deno.env.get('MODE') || '') 
+    ? Deno.env.get('MODE') as Mode
     : 'ssr' 
 
+const isRouteValid = (obj: unknown) => typeof obj === 'object' && obj !== null &&
+    ('path' in obj) && typeof obj.path === 'string' &&
+    ('handle' in obj) && typeof obj.handle === 'function'
+
 // explore routes & return them
-export async function explore(directory?: string): Promise<Route[]> {
+async function exploreRoutes(directory?: string): Promise<Route[]> {
     const dir = directory ?? './src/routes'
     const mods = []
     for await(const entry of Deno.readDir(dir)) {
         const next = dir + '/' + entry.name
     
-        if(entry.isDirectory) {
-            mods.push(...await explore(next))
-        } else if(entry.isFile && entry.name.endsWith('.ts')) {
+        if(entry.isDirectory) mods.push(...await exploreRoutes(next))
+        else if(entry.isFile && entry.name.endsWith('.ts')) {
             const mod = await import('../' + next)
 
             for(const obj of Object.values(mod)) {
-                if(
-                    typeof obj !== 'object' || obj === null ||
-                    !('path' in obj) || typeof obj.path !== 'string' ||
-                    !('handle' in obj) || typeof obj.handle !== 'function'
-                ) continue
-
-                mods.push(obj as Route)
+                if(isRouteValid(obj)) 
+                    mods.push(obj as Route)
             }
         }
     }
@@ -46,9 +46,9 @@ export async function explore(directory?: string): Promise<Route[]> {
 }
 
 // explore routes & create a routing map
-export default async function routes() {
-    const routes: Map<URLPattern, Handle> = new Map();
-    const mods = await explore()
+export default async () => {
+    const routes: Routes = new Map();
+    const mods = await exploreRoutes()
     for(const mod of mods) {
         const pattern = new URLPattern({ pathname: mod.path })
         routes.set(pattern, mod.handle(mode))

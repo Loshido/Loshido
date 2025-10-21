@@ -2,9 +2,9 @@ import { exists } from "@std/fs/exists";
 
 export const TEMPLATE_PATH = Deno.env.get('TEMPLATE_PATH') || './templates'
 export const PAGE_PATH = Deno.env.get('PAGE_PATH') || './dist'
+export const BLOG_PATH = Deno.env.get('BLOG_PATH') || './blog'
 
-export async function readTemplate(name: string): Promise<string | null> {
-    const path = TEMPLATE_PATH + `/${name}.html`
+async function readFile(path: string) {
     if(!await exists(path)) 
         return null
 
@@ -12,27 +12,26 @@ export async function readTemplate(name: string): Promise<string | null> {
     return file
 }
 
-export async function listTemplates(directory?: string): Promise<string[]> {
-    const dir = directory ?? TEMPLATE_PATH
-    const templates: string[] = []
+export const readTemplate = (name: string) => 
+    readFile(TEMPLATE_PATH + `/${name}.html`)
+
+export const readPage = (name: string) => 
+    readFile(PAGE_PATH + `/${name}.html`)
+
+export const readArticle = (name: string) => 
+    readFile(BLOG_PATH + `/${name}.md`)
+
+export async function exploreArticles(directory?: string): Promise<string[]> {
+    const dir = directory ?? BLOG_PATH
+    const articles = []
     for await(const entry of Deno.readDir(dir)) {
         const next = dir + '/' + entry.name
     
         if(entry.isDirectory) {
-            templates.push(...(await listTemplates(next)))
-        } else if(entry.isFile && entry.name.endsWith('.html')) {
-            templates.push(next)
+            articles.push(...await exploreArticles(next))
+        } else if(entry.isFile && entry.name.endsWith('.md')) {
+            articles.push(next.slice(2, -3))
         }
-
     }
-    return templates
-}
-
-export async function readPage(name: string) {
-    const path = PAGE_PATH + `/${name}.html`
-    if(!await exists(path)) 
-        return null
-
-    const file = await Deno.readTextFile(path)
-    return file
+    return articles
 }
