@@ -4,18 +4,18 @@
     border-image: url(/assets/button.svg) 10 10 10 10 stretch stretch;
 }
 
-article{
+a{
     cursor: pointer;
 }
-article h3{
+a h3{
     position: relative;
 }
-article:not(:has(h3)) {
+a:not(:has(h3)) {
     position: relative;
 }
 
-article h3::after,
-article:not(:has(h3))::after{
+a h3::after,
+a:not(:has(h3))::after{
     content: '';
     position: absolute;
     bottom: -4px;
@@ -28,8 +28,8 @@ article:not(:has(h3))::after{
     transition: width .3s ease;
 }
 
-article:hover h3::after,
-article:hover:not(:has(h3))::after{
+a:hover h3::after,
+a:hover:not(:has(h3))::after{
     width: 70%;
 }
 main > p > span{

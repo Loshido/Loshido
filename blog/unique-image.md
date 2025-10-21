@@ -1,12 +1,6 @@
----
-title: 'An Image Made Just for You'
-description: 'Turning Your IP Address into Art'
-date: '31/08/2025'
-image: '/assets/blog/unique-image/thumbnail.png'
----
+| ![Generated from ip address](/lissajous.svg) | You are the only one seeing this image |
+| --- | --- |
 
-![Generated from ip address](/lissajous.svg)
-You are the only one seeing this image\
 (It is generated for you)
 
 

@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title *text="id"></title>
+    <title *text="title"></title>
     <link rel="stylesheet" href="/assets/style/global.css">
+    <link rel="stylesheet" href="/assets/style/gfm.css">
     <link rel="shortcut icon" href="/assets/fav.svg" type="image/svg+xml">
 </head>
-<body *mizu class="md:mx-[5dvw] lg:mx-[10dvw] xl:mx-[15dvw] 2xl:mx-[25vw] min-h-dvh p-8 md:p-0">
-    <header class="flex flex-wrap items-center justify-between sm:py-8 text-sm">
-        <p *mustache>Dernière mise à jour : {{date}}</p>
-        <p class="text-black/50" *text="commit"></p>
+<body *mizu class="md:mx-[5dvw] lg:mx-[10dvw] xl:mx-[25dvw] min-h-dvh p-8">
+    <header class="flex flex-wrap items-center justify-between mb-8 gap-2 text-sm">
+        <div class="head">
+            <a *html="back" href="/"
+                class="h-12 w-12 stroke-black row-span-2 hover:-translate-x-1
+                hover:scale-90 hover:stroke-black/75 transition-transform"></a>
+            <h2 *text="title" class="text-lg font-bold"></h2>
+            <p *mustache>Publication : {{date}}</p>
+        </div>
+        <p class="text-black/25 text-xs" *text="commit"></p>
     </header>
-    <p *mustache>
-        {{ id }}
-    </p>
+    <main data-color-mode="light" data-light-theme="light" data-dark-theme="dark" class="markdown-body" *html="article">
+    </main>
 </body>
 </html>

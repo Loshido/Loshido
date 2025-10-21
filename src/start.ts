@@ -1,13 +1,15 @@
 import { serveDir } from "@std/http/file-server"
-import tailwind from "./services/tailwind.ts"
-import mapRoutes from "./services/routes.ts"
 
-tailwind({ watch: true, quiet: true })
+Deno.env.set('MODE', 'ssg')
+import mapRoutes from "./services/routes.ts"
 const routes = await mapRoutes()
 
 routes.set(new URLPattern({ pathname: '/assets/*'}), (req) => serveDir(req, {
     fsRoot: './assets',
-    urlRoot: 'assets'
+    urlRoot: 'assets',
+    headers: [
+        "cache-control: public, max-age=172800, stale-while-revalidate=86400"
+    ]
 }))
 
 Deno.serve({ port: 80 }, async (req, info) => {

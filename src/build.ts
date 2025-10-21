@@ -1,5 +1,5 @@
-import tailwind from "./tailwind.ts"
-import { exploreArticles, PAGE_PATH } from "./pages.ts"
+import tailwind from "./services/tailwind.ts"
+import { readArticlesMeta, PAGE_PATH } from "./services/pages.ts"
 
 
 // build the css
@@ -14,6 +14,10 @@ interface Tasks {
         args?: any,
         generate: (args: any) => Promise<string | null>
     }
+    [name: `blog/${string}`]: {
+        args: string,
+        generate: (id: string) => Promise<string | null>
+    }
 }
 
 // Contains every route to render 
@@ -25,14 +29,12 @@ const tasks: Tasks = {
 }
 
 // pushing every blog article
-const articles = await exploreArticles()
+const articles = await readArticlesMeta()
 const articleFactory = (await import('./routes/blog.ts')).default.generate
-articles.forEach(article => tasks[article] = {
-    args: { id: article },
+articles.forEach(article => tasks[`blog/${article.id}`] = {
+    args: article.id,
     generate: articleFactory
 })
-
-console.log(articles)
 
 // SSR to build SSG <=> unified rendering pipeline
 for(const [name, { args, generate }] of Object.entries(tasks)) {

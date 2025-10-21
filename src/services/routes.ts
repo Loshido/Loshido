@@ -34,7 +34,7 @@ async function exploreRoutes(directory?: string): Promise<Route[]> {
     
         if(entry.isDirectory) mods.push(...await exploreRoutes(next))
         else if(entry.isFile && entry.name.endsWith('.ts')) {
-            const mod = await import('../' + next)
+            const mod = await import('../../' + next)
 
             for(const obj of Object.values(mod)) {
                 if(isRouteValid(obj)) 

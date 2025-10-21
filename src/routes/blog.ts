@@ -1,15 +1,16 @@
-import { readArticle, readPage } from "../pages.ts";
+import { readArticle, readArticleMeta, readPage, readTemplate } from "../services/pages.ts";
 import Mizu from "@mizu/render/server"
+import { render } from "@deno/gfm"
 
 export default {
     path: '/blog/:id',
     handle(mode) {
         return async (_, url) => {
             const id = url.pathname.groups.id as string | undefined
-            if(!('id' in url.pathname.groups) || !id) return 'next'
+            if(!id) return 'next'
 
             const page = mode === 'ssr' 
-                ? await this.generate!({ id }) 
+                ? await this.generate!(`blog/${id}`) 
                 : await readPage(`blog/${id}`)
             if(!page) return 'next'
     
@@ -21,23 +22,28 @@ export default {
         }
     },
     name: 'blog',
-    async generate(args) {
-        if(!args) return ''
-        const id = args.id.startsWith('blog/') ? args.id.slice(5) : args.id
+    async generate(id) {
+        if(!id) return ''
+        id = id.startsWith('blog/') ? id.slice(5) : id
 
         const article = await readArticle(id)
-        if(!article) return null
-        const date = new Date().toLocaleDateString('fr-FR', {
-            dateStyle: 'medium'
-        })
+        const template = await readTemplate('blog')
+        const meta = await readArticleMeta(id)
+        const back = await Deno.readTextFile('./templates/back.svg')
         const commit = Deno.env.get('GIT_HEAD') || '7198db5b4ce36d3c0641764c2848d2252d3a4924'
+        if(!article || !template || !meta || !back) return null
 
-        return await Mizu.render(article, {
+        const rendered = render(article, {
+            allowIframes: true
+        })
+
+        return await Mizu.render(template, {
             context: {
-                date,
                 commit,
-                id
+                ...meta,
+                article: rendered,
+                back
             }
         })
     }
-} satisfies Route<{ id: string }>
+} satisfies Route<string>

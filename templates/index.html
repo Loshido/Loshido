@@ -11,7 +11,7 @@
 <body *mizu class="md:mx-[5dvw] lg:mx-[10dvw] xl:mx-[15dvw] 2xl:mx-[25vw] min-h-dvh p-8 md:p-0">
     <header class="flex flex-wrap items-center justify-between sm:py-8 text-sm">
         <p *mustache>Dernière mise à jour : {{date}}</p>
-        <p class="text-black/50" *text="commit"></p>
+        <p class="text-black/25" *text="commit"></p>
     </header>
     <main class="font-virgil">
         <figure class="flex flex-col-reverse items-start py-4 sm:p-0 sm:flex-row sm:items-center sm:gap-8">
@@ -36,26 +36,26 @@
     <p class="font-virgil text-orange-600">
         Ce site n'est pas encore fini 🚧
     </p>
-    <section class="mt-4 sm:my-8 flex flex-col sm:grid grid-cols-4 md:grid-cols-5 gap-2">
-        <article class="box col-span-2 p-2">
+    <section class="mt-4 sm:my-8 flex flex-col sm:grid grid-cols-4 md:grid-cols-4 gap-2">
+        <a class="box col-span-2 p-2" href="/blog/unique-image">
             <h3 class="text-xl font-black w-fit">
                 An Image Made Just for You
             </h3>
             <p class="font-virgil mt-2 text-xs sm:text-base">
                 Turning your IP Address into Art
             </p>
-        </article>
-        <article class="box col-span-2 p-2">
+        </a>
+        <a class="box col-span-2 p-2" href="/blog/neon-dawn">
             <h3 class="text-xl font-black  w-fit">
                 Don't just code it - Watch it fly around Earth
             </h3>
             <p class="font-virgil mt-2 text-xs sm:text-base">
                 Webservers made fun - Learn, code and see it in action
             </p>
-        </article>
-        <article class="box flex items-center justify-center text-2xl font-virgil col-span-4 md:col-span-1 md:w-fit h-fit p-2">
+        </a>
+        <!-- <a class="box flex items-center justify-center text-2xl font-virgil col-span-4 md:col-span-1 md:w-fit h-fit p-2">
             <h3>Voir plus</h3>
-        </article>
+        </a> -->
     </section>
 </body>
 </html>

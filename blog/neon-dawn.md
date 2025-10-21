@@ -1,12 +1,3 @@
----
-title: 'Don''t just code it — Watch it fly around Earth'
-description: 'Webservers made fun - Learn, code and see it in action'
-date: '12/08/2025'  
-image: '/assets/blog/neon-dawn/affiche.png'
----
-
-*This article is written by Livio Ardoin (Loshido) in August 2025*
-
 # Neon-dawn 
 [
 ![Neon-dawn](/assets/blog/neon-dawn/banner.png)

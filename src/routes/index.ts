@@ -1,4 +1,4 @@
-import { readPage, readTemplate } from "../pages.ts";
+import { readPage, readTemplate } from "../services/pages.ts";
 import Mizu from "@mizu/render/server"
 
 export default {
