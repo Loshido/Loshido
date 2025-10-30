@@ -1,4 +1,4 @@
 - [ ] reseaux
-- [ ] blog
+- [x] blog
 - [ ] contact
 - [ ] 404
