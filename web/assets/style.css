@@ -35,7 +35,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 32px;
-    & > svg {
+    & > img {
         width: fit-content;
         height: 96px;
     }
