@@ -1,0 +1,82 @@
+:root {
+    --brown: #54433b;
+    --green: #16c071;
+    --yellow: #eae6d7;
+}
+@font-face {
+    font-family: "BluuNext";
+    src: url(/assets/BluuNext.otf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::selection {
+    background-color: hsl(from var(--brown) h s calc(l + 20) / 0.6);
+}
+body {
+    background: var(--yellow);
+    color: var(--brown);
+    padding: 32px;
+    & > h1,
+    & > h2 {
+        font-family: "BluuNext";
+    }
+    & > h2,
+    & > p,
+    & > .competences,
+    & > .articles {
+        margin-top: 24px;
+    }
+}
+.competences {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+    & > svg {
+        width: fit-content;
+        height: 96px;
+    }
+}
+.articles {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.articles a {
+    position: relative;
+    padding: 8px 12px;
+    color: var(--brown);
+    text-decoration: unset;
+    transition: background 0.3s ease-out;
+    &:hover {
+        background-color: hsl(from var(--brown) h s l / 0.1);
+    }
+}
+.articles a[data-date]::before {
+    content: attr(data-date);
+    position: absolute;
+    top: 12px;
+    right: 100%;
+    width: 100px;
+    text-align: right;
+
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: transparent;
+    transition:
+        color 0.3s ease-in,
+        right 0.3s ease;
+}
+.articles a[data-date]:hover::before {
+    right: calc(100% + 12px);
+    color: var(--brown);
+}
+
+@media (width > 600px) {
+    body {
+        padding: 64px 30vw;
+    }
+}
