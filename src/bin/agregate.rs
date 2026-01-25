@@ -1,9 +1,10 @@
 use std::{fs::{create_dir, create_dir_all, exists, read_to_string, write}, io::Error, path::Path};
 use loshido::agregate::{fragments::agregate, OUT, BASE, files::copy_dir_all};
 
-const INPUTS: [&str; 2] = [
+const INPUTS: [&str; 3] = [
     "index.html", 
-    "projets/explorer.html"
+    "projets/explorer.html",
+    "projets/neon-dawn/index.html"
 ];
 
 fn main() -> Result<(), Error> {

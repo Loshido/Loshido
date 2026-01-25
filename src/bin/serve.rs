@@ -7,7 +7,9 @@ async fn main() {
     let dist = ServeDir::new("./dist");
     let routes = files_router! {
         "/" => "./dist/index.html",
+        "/projets" => "./dist/index.html",
         "/projets/explorer" => "./dist/projets/explorer.html",
+        "/projets/neon-dawn" => "./dist/projets/neon-dawn/index.html",
     };
 
     let app = Router::new()
