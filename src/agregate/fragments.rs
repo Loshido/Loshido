@@ -1,6 +1,5 @@
 use std::{fs::read_to_string, path::Path};
-
-use crate::FRAGMENTS;
+use crate::agregate::FRAGMENTS;
 
 fn find_fragment(path: &str) -> String {
     let fragment_path = Path::new(FRAGMENTS).join(path);

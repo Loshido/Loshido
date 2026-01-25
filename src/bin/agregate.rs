@@ -1,16 +1,10 @@
-use std::{fs::{create_dir, exists, read_to_string, write}, io::Error, path::Path};
-use crate::{files::copy_dir_all, fragments::agregate};
+use std::{fs::{create_dir, create_dir_all, exists, read_to_string, write}, io::Error, path::Path};
+use loshido::agregate::{fragments::agregate, OUT, BASE, files::copy_dir_all};
 
-mod files;
-mod fragments;
-
-const INPUTS: [&str; 1] = [
-    "index.html"
+const INPUTS: [&str; 2] = [
+    "index.html", 
+    "projets/explorer.html"
 ];
-pub const BASE: &str = "./web";
-pub const FRAGMENTS: &str = "./web/fragments";
-pub const OUT: &str = "./dist";
-
 
 fn main() -> Result<(), Error> {
     // Création du dossier de sortie
@@ -28,6 +22,11 @@ fn main() -> Result<(), Error> {
         agregate(&mut file);
 
         let file_path = out_path.join(input);
+        if let Some(parent) = file_path.parent() {
+            // On créé les dossiers parents
+            create_dir_all(parent)?;
+        }
+
         write(file_path, file)?;
 
         println!("{} complété", input);
