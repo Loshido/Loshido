@@ -1,0 +1,98 @@
+---
+const projets = [
+    {
+        titre: "Sens",
+        href: '',
+        date: 'Jan. 2026',
+        progress: 0,
+        description: `Une plateforme de gestion d'engagements pour une école d'ingénieur.<br/>`
+        + `Mesurer l'engagement responsable des étudiants sous forme d'objectifs à accomplir.`
+    },
+    {
+        titre: "Link IE",
+        href: '',
+        date: 'Dec. 2025',
+        progress: 0,
+        description: `Une plateforme de gestion de redirections de l'association IsenEngineering,<br/>`
+        + `Gérer toutes les redirections en temps réel.`
+    },
+    {
+        titre: "Kernel-Panic",
+        href: '',
+        date: 'Nov. 2025',
+        progress: 0,
+        description: `Un hackaton dans lequel les participants sont limités à l'utilisation d'un conteneur.<br/>`
+        + `Ils sont mis en concurrence par l'affichage d'un classement en temps réel.`
+    },
+    {
+        titre: "La Bourse Folle",
+        href: '',
+        date: 'Sep. 2025',
+        progress: 0,
+        description: `Une plateforme qui fait fluctuer le prix des boissons en fonction<br/>`
+        + `des consommations à l'occasion de soirées de l'association IsenEngineering.`
+    },
+    {
+        href: '/projets/neon-dawn',
+        date: 'Aug. 2025',
+        titre: "Neon-Dawn",
+        progress: 1,
+        description: `Un hackaton dans lequel les participants doivent mettre en orbite un satellite.`
+    },
+    {
+        href: '',
+        date: 'Feb. 2025',
+        titre: "Explorer",
+        progress: 0,
+        description: `Une légère interface pour accéder à mes fichiers depuis internet<br/>`
+        + `sans passer par un réseau privée (type Wireguard)`
+    },
+    {
+        href: '',
+        date: 'May. 2025',
+        titre: "All Game Long - Bet",
+        progress: 0,
+        description: `Une plateforme qui permet de parier des sommes fictives<br/>`
+        + `à l'occasion d'un évènement sur une soirée compétitive.`
+    },
+    {
+        href: '',
+        date: 'Sep. 2024',
+        titre: "Tidee",
+        progress: 0,
+        description: `Une plateforme de gestion des présences et des membres de l'association IsenEngineering.<br/>`
+        + `Elle permet de mesurer l'engagement responsable en heures.`
+    },
+    {
+        href: '',
+        date: 'May. 2023',
+        titre: "Island Generation",
+        progress: 0,
+        description: `Génération procédurale d'îles paradisiaques.`
+    },
+]
+---
+
+<h2>
+    Mes projets
+</h2>
+<img alt="Séparateur"
+    loading="lazy" src="/home/img/line.svg" height="16"/>
+<section class="articles">
+    {
+        projets.map(projet => <a
+            href={projet.href} data-date={projet.date}>
+            <h3>
+                { projet.titre } 
+                <span class="green" title="Progression de l'écriture des pages">
+                    { projet.progress === 0 ? '○' : '' }
+                    { projet.progress === 1 ? '◔' : '' }
+                    { projet.progress === 2 ? '◑' : '' }
+                    { projet.progress === 3 ? '◕' : '' }
+                    { projet.progress === 4 ? '●' : '' }
+                </span>
+            </h3>
+            <p set:html={projet.description}/>
+        </a>)
+    }
+</section>

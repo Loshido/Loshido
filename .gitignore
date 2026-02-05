@@ -1,2 +1,4 @@
 /target
 /dist
+**/.astro
+**/node_modules

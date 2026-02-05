@@ -1,0 +1,43 @@
+:root {
+    --brown: #54433b;
+    --green: #16c071;
+    --yellow: #eae6d7;
+}
+@font-face {
+    font-family: "BluuNext";
+    src: url(/BluuNext.otf);
+}
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::selection {
+    background-color: hsl(from var(--brown) h s calc(l + 20) / 0.6);
+}
+body {
+    background: var(--yellow);
+    color: var(--brown);
+    padding: 32px;
+}
+
+p > a{
+    padding: 1px 2px;
+    background-color: hsl(from var(--brown) h s calc(l + 20) / 0.3);
+    text-decoration: unset;
+    color: inherit;
+    transition: background .3s ease;
+    &:hover {
+        background-color: hsl(from var(--brown) h s calc(l + 20) / 0.5);
+    }
+}
+.green{
+    color: var(--green);
+}
+
+@media (width > 600px) {
+    body {
+        padding: 64px 30vw;
+    }
+}
