@@ -1,0 +1,41 @@
+<div class="endpoint">
+    <input type="radio" id="head-ws" name="endpoint">
+    <label class="head" for="head-ws">
+        <span class="get method">GET</span>
+        <code>/ws</code>
+    </label>
+    <div class="body">
+        <div class="heading">
+            <h3>
+                <span class="get method">GET</span>
+                <code>/ws</code>
+            </h3>
+            <p>
+                Passer sur le protocole Websocket.
+            </p>
+        </div>
+        <hr />
+        <div class="params">
+            <p>
+                Ici vous pouvez passer sur le protocole Websocket,
+                vous pouvez envoyer trois types de messages en utilisant ce protocole.
+            </p>
+            <pre>{
+    "type": "Launch",
+    "name": string,
+    "color": [number, number, number],
+    "citation": string
+}</pre>
+            <pre>{
+    "type": "Update",
+    "name": string, // optionel
+    "color": [number, number, number], // optionel
+}</pre>
+            <pre>{
+    "type": "Signal",
+    "position": [number, number, number],
+    "rotation": [number, number, number]
+}</pre>
+        </div>
+    </div>
+</div>

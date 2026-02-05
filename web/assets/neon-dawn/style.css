@@ -1,4 +1,14 @@
+@font-face {
+    font-family: "BluuNext";
+    src: url(/assets/BluuNext.otf);
+}
+:root{
+    --green: rgba(5, 255, 117, 0.822);
+    --pink: rgba(255, 0, 155, 0.822);
+}
+
 * {
+    font-family: 'Inter', sans-serif, monospace;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,6 +17,10 @@
 body {
     background-color: #000;
     color: #fff;
+}
+
+h2 {
+    font-family: "BluuNext";
 }
 
 header {
@@ -37,9 +51,10 @@ header {
             font-weight: 900;
         }
         & > p {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 400;
             color: #fffa;
+            text-transform: uppercase;
         }
     }
     & > #satellite{
@@ -83,9 +98,10 @@ header {
     left: 37.5dvw;
 }
 
-main {
+main, section {
     min-height: 90dvh;
-    padding: 64px 30vw;
+    padding: 64px 25vw;
+    position: relative;
 }
 
 @media (width < 800px) {
@@ -113,7 +129,7 @@ main {
         left: 32px;
     }
 
-    main {
+    main, section {
         padding: 32px;
     }
 }

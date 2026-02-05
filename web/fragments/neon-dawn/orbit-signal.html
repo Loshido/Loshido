@@ -1,0 +1,69 @@
+<div class="endpoint">
+    <input type="radio" id="head-signal" name="endpoint">
+    <label class="head" for="head-signal">
+        <span class="post method">POST</span>
+        <code>/orbit/signal</code>
+    </label>
+    <div class="body">
+        <div class="heading">
+            <h3>
+                <span class="post method">POST</span>
+                <code>/orbit/signal</code>
+            </h3>
+            <p>
+                Signaler la nouvelle position du satellite.
+            </p>
+        </div>
+        <hr />
+        <div class="params">
+            <h4>
+                Corps de la requête
+            </h4>
+            <label for="signal-position">
+                <div class="meta">
+                    <code>position</code>
+                    <sup class="required">*</sup>
+                    <span class="type">[number, number, number]</span>
+                </div>
+                <p>
+                    Position du satellite (dans un repère cartésien)
+                </p>
+                <input type="text" id="signal-position" placeholder="[2.0, 2.0, 0.0]">
+            </label>
+            <label for="signal-rotation">
+                <div class="meta">
+                    <code>rotation</code>
+                    <span class="type">[number, number, number]</span>
+                </div>
+                <p>
+                    Rotation du satellite (Euler en radians)
+                </p>
+                <input type="text" id="signal-rotation" placeholder="[0.0, 0.0, 0.0]">
+            </label>
+            <button id="signal-button">
+                Signaler
+            </button>
+            <script>
+                const signal = document.getElementById('signal-button')
+                const position = document.getElementById('signal-position')
+                const rotation = document.getElementById('signal-rotation')
+
+                signal.addEventListener('click', async () => {
+                    if(position.value.length === 0) return
+
+                    // additional process
+
+                    const response = await fetch('.../orbit/signal', {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            position: ...,
+                            rotation: ...
+                        })
+                    })
+
+                    console.log(response)
+                })
+            </script>
+        </div>
+    </div>
+</div>
