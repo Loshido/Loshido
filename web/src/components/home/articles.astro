@@ -3,12 +3,19 @@ const articles = [
     {
         href: '/projets/neon-dawn',
         date: 'Feb. 2026',
-        titre: "Don't just code it - Watch it fly around Earth",
-        progress: 1,
+        title: "Don't just code it - Watch it fly around Earth",
+        progress: 3,
         description: `Un hackaton très visuel où les participants doivent<br/>`
         + `mettre en orbite un satellite.`
     }
-]
+] as {
+    href: string,
+    date: string,
+    title: string,
+    external?: boolean,
+    progress?: 0 | 1 | 2 | 3 | 4
+    description: string
+}[]
 
 ---
 
@@ -16,18 +23,20 @@ const articles = [
     Articles / Recherches
 </h2>
 <img alt="Séparateur"
-    loading="lazy" src="/home/img/line.svg" height="16"/>
+    loading="eager" src="/home/img/line.svg" height="16"/>
 <section class="articles">
     {
-        articles.map(article => <a href={article.href} data-date={article.date}>
+        articles.map(article => <a href={article.href} data-date={article.date}
+            target={article.external ? '_blank' : '_self'}>
             <h3>
-                { article.titre }
+                { article.title }
                 <span title="Progression écriture des pages" class="green">
                     { article.progress === 0 ? '○' : '' }
                     { article.progress === 1 ? '◔' : '' }
                     { article.progress === 2 ? '◑' : '' }
                     { article.progress === 3 ? '◕' : '' }
                     { article.progress === 4 ? '●' : '' }
+                    { article.external === true ? '🡵' : '' }
                 </span>
             </h3>
             <p set:html={article.description}/>

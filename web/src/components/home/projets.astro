@@ -1,7 +1,7 @@
 ---
 const projets = [
     {
-        titre: "Sens",
+        title: "Sens",
         href: '',
         date: 'Jan. 2026',
         progress: 0,
@@ -9,7 +9,7 @@ const projets = [
         + `Mesurer l'engagement responsable des étudiants sous forme d'objectifs à accomplir.`
     },
     {
-        titre: "Link IE",
+        title: "Link IE",
         href: '',
         date: 'Dec. 2025',
         progress: 0,
@@ -17,7 +17,7 @@ const projets = [
         + `Gérer toutes les redirections en temps réel.`
     },
     {
-        titre: "Kernel-Panic",
+        title: "Kernel-Panic",
         href: '',
         date: 'Nov. 2025',
         progress: 0,
@@ -25,7 +25,7 @@ const projets = [
         + `Ils sont mis en concurrence par l'affichage d'un classement en temps réel.`
     },
     {
-        titre: "La Bourse Folle",
+        title: "La Bourse Folle",
         href: '',
         date: 'Sep. 2025',
         progress: 0,
@@ -33,63 +33,72 @@ const projets = [
         + `des consommations à l'occasion de soirées de l'association IsenEngineering.`
     },
     {
-        href: '/projets/neon-dawn',
+        href: 'https://neon-dawn.loshido.me/helper/',
         date: 'Aug. 2025',
-        titre: "Neon-Dawn",
-        progress: 1,
+        title: "Neon-Dawn",
+        external: true,
         description: `Un hackaton dans lequel les participants doivent mettre en orbite un satellite.`
     },
     {
-        href: '',
+        href: 'https://explorer.loshido.me',
         date: 'Feb. 2025',
-        titre: "Explorer",
-        progress: 0,
+        title: "Explorer",
+        external: true,
         description: `Une légère interface pour accéder à mes fichiers depuis internet<br/>`
         + `sans passer par un réseau privée (type Wireguard)`
     },
     {
         href: '',
         date: 'May. 2025',
-        titre: "All Game Long - Bet",
+        title: "All Game Long - Bet",
         progress: 0,
         description: `Une plateforme qui permet de parier des sommes fictives<br/>`
         + `à l'occasion d'un évènement sur une soirée compétitive.`
     },
     {
-        href: '',
+        href: 'https://tide.isenengineering.fr',
         date: 'Sep. 2024',
-        titre: "Tidee",
-        progress: 0,
+        title: "Tidee",
+        external: true,
         description: `Une plateforme de gestion des présences et des membres de l'association IsenEngineering.<br/>`
         + `Elle permet de mesurer l'engagement responsable en heures.`
     },
     {
-        href: '',
+        href: 'https://island-generation.vercel.app',
+        external: true,
         date: 'May. 2023',
-        titre: "Island Generation",
-        progress: 0,
+        title: "Island Generation",
         description: `Génération procédurale d'îles paradisiaques.`
     },
-]
+] as {
+    href: string,
+    date: string,
+    title: string,
+    external?: boolean,
+    progress?: 0 | 1 | 2 | 3 | 4
+    description: string
+}[]
 ---
 
 <h2>
     Mes projets
 </h2>
 <img alt="Séparateur"
-    loading="lazy" src="/home/img/line.svg" height="16"/>
+    loading="eager" src="/home/img/line.svg" height="16"/>
 <section class="articles">
     {
         projets.map(projet => <a
-            href={projet.href} data-date={projet.date}>
+            href={projet.href} data-date={projet.date}
+            target={projet.external ? '_blank' : '_self'}>
             <h3>
-                { projet.titre } 
+                { projet.title } 
                 <span class="green" title="Progression de l'écriture des pages">
                     { projet.progress === 0 ? '○' : '' }
                     { projet.progress === 1 ? '◔' : '' }
                     { projet.progress === 2 ? '◑' : '' }
                     { projet.progress === 3 ? '◕' : '' }
                     { projet.progress === 4 ? '●' : '' }
+                    { projet.external === true ? '🡵' : '' }
                 </span>
             </h3>
             <p set:html={projet.description}/>

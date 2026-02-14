@@ -133,3 +133,13 @@ main, section {
         padding: 32px;
     }
 }
+
+iframe {
+    display: block;
+    border: unset;
+
+    min-height: 100dvh;
+    padding: 64px 5vw;
+    height: 100%;
+    width: 100%;
+}

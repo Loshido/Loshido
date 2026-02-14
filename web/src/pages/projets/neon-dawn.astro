@@ -5,8 +5,7 @@ import "~/styles/neon-dawn-api.css"
 import Html from "~/layouts/default-html.astro"
 
 import Background from "~/components/neon-dawn/background.astro"
-import Api        from "~/components/neon-dawn/api.astro"
-import Satellite from "~/components/neon-dawn/satellite/mod"
+import Satellite  from "~/components/neon-dawn/satellite/mod"
 ---
 <Html titre="Livio Ardoin - Neon-dawn">
     <header>
@@ -30,5 +29,7 @@ import Satellite from "~/components/neon-dawn/satellite/mod"
         </a>
     </header>
     <Satellite client:only="solid-js"/>
-    <Api/>
+    <!-- <Api/> -->
+    <!-- <iframe src="http://localhost/helper/?embedded" style="overflow: hidden;"/> -->
+    <iframe src="https://neon-dawn.loshido.me/helper/?embedded" style="overflow: hidden;"/>
 </Html>

@@ -97,11 +97,11 @@ fieldset {
     display: none;
 }
 
-.api:has(#endpoint-orbit-launch:checked) > [data-endpoint="orbit-launch"],
-.api:has(#endpoint-orbit-update:checked) > [data-endpoint="orbit-update"],
-.api:has(#endpoint-orbit-signal:checked) > [data-endpoint="orbit-signal"],
-.api:has(#endpoint-ws:checked) > [data-endpoint="ws"],
-.api:has(#endpoint-listen:checked) > [data-endpoint="listen"] {
+.api:has(#endpoint-orbit-launch:checked) [data-endpoint="orbit-launch"],
+.api:has(#endpoint-orbit-update:checked) [data-endpoint="orbit-update"],
+.api:has(#endpoint-orbit-signal:checked) [data-endpoint="orbit-signal"],
+.api:has(#endpoint-ws:checked) [data-endpoint="ws"],
+.api:has(#endpoint-listen:checked) [data-endpoint="listen"] {
     width: 100%;
     display: block;
 
