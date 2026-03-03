@@ -1,11 +1,18 @@
 ---
 const projets = [
     {
+        title: "Color-Burn",
+        href: 'https://color-burn.loshido.me',
+        date: 'Feb. 2026',
+        external: true,
+        description: `Un jeu dans lequel vous devez rassembler chaque couleur dans une bouteille.`
+    },
+    {
         title: "Sens",
         href: '',
         date: 'Jan. 2026',
         progress: 0,
-        description: `Une plateforme de gestion d'engagements pour une école d'ingénieur.<br/>`
+        description: `Une plateforme de gestion d'engagements.<br/>`
         + `Mesurer l'engagement responsable des étudiants sous forme d'objectifs à accomplir.`
     },
     {
@@ -13,38 +20,39 @@ const projets = [
         href: '',
         date: 'Dec. 2025',
         progress: 0,
-        description: `Une plateforme de gestion de redirections de l'association IsenEngineering,<br/>`
-        + `Gérer toutes les redirections en temps réel.`
+        description: `Une plateforme pour créer des liens de redirections,<br/>`
+        + `notamment pour l'association IsenEngineering.`
     },
     {
         title: "Kernel-Panic",
         href: '',
         date: 'Nov. 2025',
         progress: 0,
-        description: `Un hackaton dans lequel les participants sont limités à l'utilisation d'un conteneur.<br/>`
-        + `Ils sont mis en concurrence par l'affichage d'un classement en temps réel.`
+        description: `Un hackaton limité à l'utilisation d'un conteneur.<br/>`
+        + `Les participants y sont en concurrence avec un classement en temps réel.`
     },
     {
         title: "La Bourse Folle",
         href: '',
         date: 'Sep. 2025',
         progress: 0,
-        description: `Une plateforme qui fait fluctuer le prix des boissons en fonction<br/>`
-        + `des consommations à l'occasion de soirées de l'association IsenEngineering.`
+        description: `Une plateforme type bourse dans laquelle le prix des boissons fluctuent en fonction `
+        + `des consommations (à l'occasion de soirées de l'association IsenEngineering).`
     },
     {
         href: 'https://neon-dawn.loshido.me/',
         date: 'Aug. 2025',
         title: "Neon-Dawn",
         external: true,
-        description: `Un hackaton dans lequel les participants doivent mettre en orbite un satellite.`
+        description: `Un hackaton dans lequel les participants doivent mettre en orbite un satellite `
+        + `avec du code.`
     },
     {
         href: 'https://explorer.loshido.me',
         date: 'Feb. 2025',
         title: "Explorer",
         external: true,
-        description: `Une légère interface pour accéder à mes fichiers depuis internet<br/>`
+        description: `Une légère interface pour accéder à mes fichiers depuis internet `
         + `sans passer par un réseau privée (type Wireguard)`
     },
     {
@@ -53,7 +61,8 @@ const projets = [
         title: "All Game Long - Bet",
         progress: 0,
         description: `Une plateforme qui permet de parier des sommes fictives<br/>`
-        + `à l'occasion d'un évènement sur une soirée compétitive.`
+        + `à l'occasion d'un évènement sur une soirée compétitive. `
+        + `Qui aura le plus d'argents à la fin de la soirée?`
     },
     {
         href: 'https://tide.isenengineering.fr',
@@ -98,7 +107,7 @@ const projets = [
                     { projet.progress === 2 ? '◑' : '' }
                     { projet.progress === 3 ? '◕' : '' }
                     { projet.progress === 4 ? '●' : '' }
-                    { projet.external === true ? '🡵' : '' }
+                    { projet.external === true ? '◆' : '' }
                 </span>
             </h3>
             <p set:html={projet.description}/>

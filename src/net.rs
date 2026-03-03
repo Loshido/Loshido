@@ -1,6 +1,6 @@
 use axum::Router;
 #[cfg(unix)]
-use tokio::signal::{self, unix::{signal, SignalKind}};
+use tokio::signal;
 
 async fn shutdown_signal() {
     let ctrl_c = async {
