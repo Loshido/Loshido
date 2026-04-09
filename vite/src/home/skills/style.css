@@ -1,0 +1,25 @@
+#skills :is(img, svg) {
+    scale: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 96px;
+    width: 96px;
+    animation: travel 10s ease-out infinite;
+    /* scale: 1;
+    translate: var(--to); */
+}
+@keyframes travel {
+    from {
+        rotate: var(--rotate-from);
+        translate: var(--from);
+        scale: 0;
+    }
+    70% { filter: blur(0px); }
+    to {
+        rotate: var(--rotate-to);
+        filter: blur(4px);
+        scale: 1;
+        translate: var(--to);
+    }
+}
