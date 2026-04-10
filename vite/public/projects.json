@@ -1,0 +1,52 @@
+[
+    {
+        "title": "Color-Burn",
+        "more": "https://color-burn.loshido.me",
+        "github": "https://github.com/Loshido/color-burn",
+        "date": "Feb. 2026",
+        "description": "Un jeu dans lequel vous devez rassembler chaque couleur dans une bouteille."
+    },
+    {
+        "title": "Link IE",
+        "github": "https://github.com/IsenEngineering/LinkIE",
+        "date": "Dec. 2025",
+        "description": "Une plateforme pour créer des liens de redirections, notamment pour l'association IsenEngineering."
+    },
+    {
+        "title": "Kernel-Panic",
+        "date": "Nov. 2025",
+        "description": "Un hackaton limité à l'utilisation d'un conteneur. Les participants y sont en concurrence avec un classement en temps réel."
+    },
+    {
+        "title": "La Bourse Folle",
+        "date": "Sep. 2025",
+        "description": "Une plateforme type bourse dans laquelle le prix des boissons fluctuent en fonction des consommations (à l'occasion de soirées de l'association IsenEngineering)."
+    },
+    {
+        "more": "https://neon-dawn.loshido.me/",
+        "date": "Aug. 2025",
+        "github": "https://github.com/Loshido/neon-dawn",
+        "title": "Neon-Dawn",
+        "description": "Un hackaton dans lequel les participants doivent mettre en orbite un satellite avec du code."
+    },
+    {
+        "date": "May. 2025",
+        "title": "All Game Long - Bet",
+        "github": "https://github.com/Loshido/agl-bet",
+        "description": "Une plateforme qui permet de parier des sommes fictives à l'occasion d'un évènement sur une soirée compétitive. Qui aura le plus d'argents à la fin de la soirée?"
+    },
+    {
+        "more": "https://tide.isenengineering.fr",
+        "github": "https://github.com/Loshido/tidee",
+        "date": "Sep. 2024",
+        "title": "Tidee",
+        "description": "Une plateforme de gestion des présences et des membres de l'association IsenEngineering. Elle permet de mesurer l'engagement responsable en heures."
+    },  
+    {
+        "more": "https://island-generation.vercel.app",
+        "github": "https://github.com/Loshido/island-generation-v2",
+        "date": "May. 2023",
+        "title": "Island Generation",
+        "description": "Génération procédurale d'îles paradisiaques."
+    }
+]
