@@ -1,0 +1,18 @@
+{
+    "type": "module",
+    "private": true,
+    "devDependencies": {
+        "@types/bun": "latest",
+        "@types/react": "^19.2.14"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "dependencies": {
+        "takumi-js": "^1.0.9"
+    },
+    "scripts": {
+        "dev": "bun --watch ./src/mod.tsx",
+        "build": "bun ./src/mod.tsx"
+    }
+}

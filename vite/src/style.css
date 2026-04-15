@@ -11,6 +11,12 @@
     --color-accent: #43CB94;
 }
 
+@custom-variant group-has-checked {
+    &:is(:where(.group):has(:checked) *) {
+        @slot;
+    }
+}
+
 body.stripes::after {
     content: "";
     width: 232px;

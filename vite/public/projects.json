@@ -8,6 +8,7 @@
     },
     {
         "title": "Link IE",
+        "more": "https://link-ie.isenengineering.fr",
         "github": "https://github.com/IsenEngineering/LinkIE",
         "date": "Dec. 2025",
         "description": "Une plateforme pour créer des liens de redirections, notamment pour l'association IsenEngineering."
@@ -15,7 +16,7 @@
     {
         "title": "Kernel-Panic",
         "date": "Nov. 2025",
-        "description": "Un hackaton limité à l'utilisation d'un conteneur. Les participants y sont en concurrence avec un classement en temps réel."
+        "description": "Un hackaton 'Escape Game' où les participants doivent résoudre des défis & énigmes. Ils ont tous le même environnement et sont en concurrence avec un classement en temps réel."
     },
     {
         "title": "La Bourse Folle",

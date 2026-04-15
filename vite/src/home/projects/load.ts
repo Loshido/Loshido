@@ -1,6 +1,7 @@
 const github = (href: string): HTMLAnchorElement => {
     const anchor = document.createElement('a')
     anchor.href = href
+    anchor.target = "_blank"
     anchor.innerHTML = `<img src="/assets/github.svg" alt="Github" `
         + `width="12" height="12" draggable="false" class="w-3 h-3">`
     anchor.className = "w-5 h-5 p-1 hover:bg-black/10 rounded-full transition-colors"
@@ -18,6 +19,7 @@ const more = (href: string): HTMLAnchorElement => {
     const anchor = document.createElement('a')
     anchor.href = href
     anchor.innerHTML = arrow
+    anchor.target = "_blank"
     anchor.className = "w-5 h-5 p-1 hover:pl-3 transition-all hover:w-7 hover:bg-black/10 rounded-full"
 
     return anchor
