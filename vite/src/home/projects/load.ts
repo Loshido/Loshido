@@ -41,7 +41,7 @@ export interface Project {
 }
 
 export default function load(project: Project, div: HTMLDivElement) {
-    div.className = 'rounded w-full sm:w-60 h-24 bg-black/5 p-3'
+    div.className = 'w-full sm:w-60 h-24 border border-black/10 border-dashed p-3 loaded'
     div.innerHTML = innerHTML
 
     const title = div.querySelector('h2') as HTMLHeadingElement
