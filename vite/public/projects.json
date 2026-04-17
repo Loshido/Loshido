@@ -1,53 +1,54 @@
+
 [
     {
         "title": "Color-Burn",
         "more": "https://color-burn.loshido.me",
         "github": "https://github.com/Loshido/color-burn",
         "date": "Feb. 2026",
-        "description": "Un jeu dans lequel vous devez rassembler chaque couleur dans une bouteille."
+        "description": "A game in which you must collect each color in a bottle."
     },
     {
         "title": "Link IE",
         "more": "https://link-ie.isenengineering.fr",
         "github": "https://github.com/IsenEngineering/LinkIE",
         "date": "Dec. 2025",
-        "description": "Une plateforme pour créer des liens de redirections, notamment pour l'association IsenEngineering."
+        "description": "A platform to create redirect links, particularly for the IsenEngineering association."
     },
     {
         "title": "Kernel-Panic",
         "date": "Nov. 2025",
-        "description": "Un hackaton 'Escape Game' où les participants doivent résoudre des défis & énigmes. Ils ont tous le même environnement et sont en concurrence avec un classement en temps réel."
+        "description": "An 'Escape Game' hackathon where participants must solve challenges & puzzles. They all have the same environment and compete with a real-time leaderboard."
     },
     {
         "title": "La Bourse Folle",
         "date": "Sep. 2025",
-        "description": "Une plateforme type bourse dans laquelle le prix des boissons fluctuent en fonction des consommations (à l'occasion de soirées de l'association IsenEngineering)."
+        "description": "A stock exchange-type platform in which drink prices fluctuate based on consumption (during IsenEngineering association events)."
     },
     {
         "more": "https://neon-dawn.loshido.me/",
         "date": "Aug. 2025",
         "github": "https://github.com/Loshido/neon-dawn",
         "title": "Neon-Dawn",
-        "description": "Un hackaton dans lequel les participants doivent mettre en orbite un satellite avec du code."
+        "description": "A hackathon in which you must put a satellite into orbit with code."
     },
     {
         "date": "May. 2025",
         "title": "All Game Long - Bet",
         "github": "https://github.com/Loshido/agl-bet",
-        "description": "Une plateforme qui permet de parier des sommes fictives à l'occasion d'un évènement sur une soirée compétitive. Qui aura le plus d'argents à la fin de la soirée?"
+        "description": "A platform that allows you to bet fictional sums during an event at a competitive evening. Who will have the most money at the end of the evening?"
     },
     {
         "more": "https://tide.isenengineering.fr",
         "github": "https://github.com/Loshido/tidee",
         "date": "Sep. 2024",
         "title": "Tidee",
-        "description": "Une plateforme de gestion des présences et des membres de l'association IsenEngineering. Elle permet de mesurer l'engagement responsable en heures."
-    },  
+        "description": "A platform for managing attendance and members of the IsenEngineering association. It allows measuring responsible engagement in hours."
+    },
     {
         "more": "https://island-generation.vercel.app",
         "github": "https://github.com/Loshido/island-generation-v2",
         "date": "May. 2023",
         "title": "Island Generation",
-        "description": "Génération procédurale d'îles paradisiaques."
+        "description": "Procedural generation of paradise islands."
     }
 ]

@@ -1,6 +1,5 @@
 /target
 /dist
-**/.astro
 **/node_modules
 **/.DS_Store
 /ogb/dist
