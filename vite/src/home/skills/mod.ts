@@ -25,7 +25,7 @@ const svgs = await Promise.all(
         })
 )
 
-const parent = document.getElementById('skills')!
+const parent = document.getElementById('skills-container')!
 for(const skill of svgs) {
     parent.appendChild(skill)
     skill.style.animationDelay = Math.floor(Math.random() * 10000) + 'ms'

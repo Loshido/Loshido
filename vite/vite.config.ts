@@ -29,5 +29,8 @@ export default defineConfig(async () => ({
         rolldownOptions: {
             input: await explore('./routes/')
         }
+    },
+    server: {
+        host: '0.0.0.0'
     }
 } satisfies UserConfig) )

@@ -1,82 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livio Ardoin</title>
     <link rel="stylesheet" href="../src/style.css">
-    <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml.">
     <meta property="og:title" content="Livio Ardoin" />
     <meta property="og:url" content="https://loshido.me/" />
     <meta property="og:image" content="https://loshido.me/ogp-banner.webp" />
 </head> 
-<body class="w-screen h-full p-6 md:px-32 lg:px-64 md:py-8 lg:py-16 stripes flex flex-col gap-8 md:gap-16">
-    <header>
-        <h1 class="text-2xl font-bold">
-            Livio Ardoin <span class="text-xs text-black/5">Loshido</span>
-        </h1>
-        <p>
-            Second year of engineering prep at <a href="https://isen-mediterranee.fr" target="_blank" class="anim">ISEN Méditerannée</a><br/>
-            on a university exchange in South Korea this spring at <a href="https://hanyang.ac.kr" target="_blank" class="anim">Hanyang University</a>.
-        </p>
-    </header>
-
-    <section class="group">
-        <h2 class="text-xl font-semibold h-fit mb-2 flex flex-row items-center gap-1">
-            Projects
-            <label class="hidden sm:block w-5 h-5 p-0.5 hover:rotate-45 transition-all hover:bg-accent hover:*:stroke-white bg-transparent
-                rounded-full cursor-pointer has-checked:rotate-90 ">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-                    stroke-width="2" fill="none" stroke="currentColor"
-                    class="h-4 w-4 transition-colors" >
-                    <path d="m9 18 6-6-6-6"/>
-                </svg>
-                <input type="checkbox" class="hidden">
-            </label>
-        </h2>
-
-        <div id="projects" class="flex flex-row flex-wrap group-has-checked:flex-col 
-            *:backdrop-blur-sm group-has-checked:*:w-full border-collapse gap-2 has-[.loaded]:gap-0">
-            <div class="w-full sm:w-60 h-24 bg-black/10 animate-pulse transition-colors"></div>
-            <div class="w-full sm:w-60 h-24 bg-black/10 animate-pulse transition-colors"></div>
-            <div class="w-full sm:w-60 h-24 bg-black/10 animate-pulse transition-colors"></div>
-            <div class="w-full sm:w-60 h-24 bg-black/10 animate-pulse transition-colors"></div>
-            <div class="w-full sm:w-60 h-24 bg-black/10 animate-pulse transition-colors"></div>
-            <div class="w-full sm:w-60 h-24 bg-black/10 animate-pulse transition-colors"></div>
-            <div class="w-full sm:w-60 h-24 bg-black/10 animate-pulse transition-colors"></div>
-            <div class="w-full sm:w-60 h-24 bg-black/10 animate-pulse transition-colors"></div>
-            <div class="w-full sm:w-60 h-24 bg-black/10 animate-pulse transition-colors"></div>
-        </div>
-        <script type="module" src="../src/home/projects/mod.ts"></script>
-    </section>
-    <section>
-        <h2 class="text-xl font-semibold mb-2">Contact</h2>
-
-        <div class="flex flex-row flex-wrap gap-2">
-            <a class="rounded w-60 text-lg h-16 bg-black/5 hover:bg-black/10 transition-colors
-                flex flex-row gap-2 items-center justify-center cursor-pointer select-none"
-                href="mailto:loshido@pm.me" target="_blank">
-                <img src="/assets/email.svg" alt="Email" width="24" height="24" draggable="false">
-                <code class="font-satoshi font-medium text-black">loshido@pm.me</code>
-            </a>
-            <a class="rounded w-16 p-1 h-16 bg-black/5 hover:bg-black/10 transition-colors
-                flex items-center justify-center cursor-pointer select-none"
-                href="https://github.com/Loshido" target="_blank">
-                <img src="/assets/github.svg" alt="Github" width="24" height="24" draggable="false">
-            </a>
-            <a class="rounded w-16 p-1 h-16 bg-black/5 hover:bg-black/10 transition-colors
-                flex items-center justify-center cursor-pointer select-none"
-                href="https://linkedin.com/in/livio-ardoin/" target="_blank">
-                <img src="/assets/in.svg" alt="LinkedIn" width="24" height="24" draggable="false">
-            </a>
-        </div>
-    </section>
-    <section>
-        <h2 class="text-xl font-semibold mb-2">Skills & Interests</h2>
-
-        <div id="skills" class="w-full h-80 relative border border-black/5 rounded">
-            <script src="../src/home/skills/mod.ts" type="module" defer></script>
-        </div>
-    </section>
+<body class="h-full overflow-hidden relative">
+    <nav class="fixed left-1 md:left-16 lg:left-32 top-16 sm:top-32 flex flex-col gap-1">
+        <a href="#" class="w-2 h-2 sm:w-4 sm:h-4 hover:bg-black/50 rounded-full transition-colors"></a>
+    </nav>
+    <main class="px-6 md:px-32 lg:px-64 stripes scrollbar-thin overflow-y-scroll h-full
+    snap-mandatory snap-y">
+        <header id="hero" class="min-h-screen py-16 sm:py-32 snap-start relative">
+            <canvas id="canvas-shader" class="absolute -z-10 top-0 left-0 w-screen h-screen -mx-6 md:-mx-32 lg:-mx-64"></canvas>
+            <script src="../src/home/shader.ts"></script>
+            <h1 class="text-2xl lg:text-5xl font-bold">
+                Livio Ardoin <span class="text-xs lg:text-base text-black/25">Loshido</span>
+            </h1>
+            <p class="lg:text-xl lg:mt-12">
+                你好, 안녕, おはよ, Hallo, Hello, Bonjour<br/>
+                I'm a computer science/engineer student at <a href="https://isen-mediterranee.fr" target="_blank" class="anim">ISEN Méditerannée</a> in France<br/>
+                I have a strong interest in foreign languages ​​and in all areas of web, infrastructure and cybersecurity.
+            </p>
+        </header>
+    
+        <section id="projects" class="py-16 sm:py-32 group min-h-screen snap-start">
+            <h2 class="text-xl font-semibold h-fit mb-2 flex flex-row items-center gap-1">
+                Projects
+                <label class="hidden sm:block w-5 h-5 p-0.5 hover:rotate-45 transition-all hover:bg-accent hover:*:stroke-white bg-transparent
+                    rounded-full cursor-pointer has-checked:rotate-90 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                        stroke-width="2" fill="none" stroke="currentColor"
+                        class="h-4 w-4 transition-colors" >
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                    <input type="checkbox" class="hidden">
+                </label>
+            </h2>
+    
+            <div id="projects-container" class="flex flex-row gap-4 flex-wrap group-has-checked:flex-col 
+                *:backdrop-blur-sm group-has-checked:*:w-full border-collapse">
+            </div>
+            <script type="module" src="../src/home/projects/mod.ts"></script>
+        </section>
+        <section id="contact" class="py-16 sm:py-32 min-h-screen snap-start">
+            <h2 class="text-xl font-semibold mb-2">Contact</h2>
+    
+            <div class="flex flex-row flex-wrap gap-2">
+                <a class="rounded w-60 text-lg h-16 bg-black/5 hover:bg-black/10 transition-colors
+                    flex flex-row gap-2 items-center justify-center cursor-pointer select-none"
+                    href="mailto:loshido@pm.me" target="_blank">
+                    <img src="/assets/email.svg" alt="Email" width="24" height="24" draggable="false">
+                    <code class="font-satoshi font-medium text-black">loshido@pm.me</code>
+                </a>
+                <a class="rounded w-16 p-1 h-16 bg-black/5 hover:bg-black/10 transition-colors
+                    flex items-center justify-center cursor-pointer select-none"
+                    href="https://github.com/Loshido" target="_blank">
+                    <img src="/assets/github.svg" alt="Github" width="24" height="24" draggable="false">
+                </a>
+                <a class="rounded w-16 p-1 h-16 bg-black/5 hover:bg-black/10 transition-colors
+                    flex items-center justify-center cursor-pointer select-none"
+                    href="https://linkedin.com/in/livio-ardoin/" target="_blank">
+                    <img src="/assets/in.svg" alt="LinkedIn" width="24" height="24" draggable="false">
+                </a>
+            </div>
+        </section>
+        <section id="skills" class="py-16 sm:py-32 min-h-screen snap-start">
+            <h2 class="text-xl font-semibold mb-2">Skills & Interests</h2>
+    
+            <div id="skills-container" class="w-full h-80 relative border border-black/5 rounded">
+                <script src="../src/home/skills/mod.ts" type="module" defer></script>
+            </div>
+        </section>
+        <section id="satellite" class="min-h-screen w-full snap-start">
+            
+        </section>
+    </main>
+    <script src="../src/home/nav.ts"></script>
 </body>
 </html>

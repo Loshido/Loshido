@@ -17,17 +17,6 @@
     }
 }
 
-body.stripes::after {
-    content: "";
-    width: 232px;
-    height: 100dvh;
-
-    background-image: repeating-linear-gradient(315deg, #0002 0px, #0002 1px, #0000 0px, #0000 50%);
-    background-size: 10px 10px;
-    
-    @apply top-0 left-0 fixed bg-repeat w-3 md:w-20 lg:w-52
-}
-
 a {
     text-decoration: none;
     @apply text-accent font-medium
