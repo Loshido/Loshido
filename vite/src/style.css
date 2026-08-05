@@ -4,9 +4,14 @@
     font-family: "Satoshi";
     src: url(/assets/fonts/Satoshi.ttf);
 }
+@font-face {
+    font-family: "Outfit";
+    src: url(/assets/fonts/Outfit.ttf);
+}
 
 @theme {
     --font-satoshi: "Satoshi";
+    --font-outfit: "Outfit";
     --default-font-family: "Satoshi";
     --color-accent: #43CB94;
 }

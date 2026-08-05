@@ -185,17 +185,7 @@ function createProgram(gl: WebGL2RenderingContext, vsSource: string, fsSource: s
     return program
 }
 
-interface AsciiGlowConfig {
-    canvasId: string
-    glowColor: [number, number, number]
-    lineWidth: number
-}
-
-function initAsciiGlow(config: AsciiGlowConfig) {
-    const canvas = document.getElementById(config.canvasId) as HTMLCanvasElement
-    const gl = canvas.getContext('webgl2')
-    if (!gl) throw "WebGL2 non supporte"
-
+function setupContext(gl: WebGL2RenderingContext) {
     const program = createProgram(gl, VERTEX_SRC, FRAGMENT_SRC)
     gl.useProgram(program)
     gl.enable(gl.BLEND)
@@ -220,68 +210,74 @@ function initAsciiGlow(config: AsciiGlowConfig) {
     gl.enableVertexAttribArray(0)
     gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
 
-    const uResolution = gl.getUniformLocation(program, "uResolution")
-    const uTime = gl.getUniformLocation(program, "uTime")
-    const uBrightness = gl.getUniformLocation(program, "uBrightness")
-    const uGlowColor = gl.getUniformLocation(program, "uGlowColor")
-    const uLineWidth = gl.getUniformLocation(program, "uLineWidth")
-
-    function resize() {
-        const dpr = Math.min(window.devicePixelRatio || 1, 2)
-        const width = Math.max(1, Math.floor(canvas.clientWidth * dpr))
-        const height = Math.max(1, Math.floor(canvas.clientHeight * dpr))
-        if (canvas.width !== width || canvas.height !== height) {
-            canvas.width = width
-            canvas.height = height
-            gl!.viewport(0, 0, width, height)
-        }
-    }
-
-    const resizeObserver = new ResizeObserver(resize)
-    resizeObserver.observe(canvas)
-    resize()
-
-    const start = performance.now()
-    let rafId = 0
-
-    const brightness = 0.1
-    const glowColor = config.glowColor ?? [1.0, 0.35, 0.05]
-    const lineWidth = config.lineWidth ?? 3.0
-
-    function frame() {
-        resize()
-        const time = (performance.now() - start) / 1000
-
-        gl!.uniform2f(uResolution, canvas.width, canvas.height)
-        gl!.uniform1f(uTime, time)
-        gl!.uniform1f(uBrightness, brightness)
-        gl!.uniform3f(uGlowColor, glowColor[0], glowColor[1], glowColor[2])
-        gl!.uniform1f(uLineWidth, lineWidth)
-
-        gl!.clearColor(0.0, 0.0, 0.0, 0.0)
-        gl!.clear(gl!.COLOR_BUFFER_BIT)
-
-        gl!.bindVertexArray(vao)
-        gl!.drawArrays(gl!.TRIANGLES, 0, 6)
-
-        rafId = requestAnimationFrame(frame)
-    }
-
-    rafId = requestAnimationFrame(frame)
-
+    
     return {
-        destroy() {
-            cancelAnimationFrame(rafId)
-            resizeObserver.disconnect()
-            gl!.deleteProgram(program)
-            gl!.deleteBuffer(buffer)
-            gl!.deleteVertexArray(vao)
-        }
+        vao,
+        uResolution: gl.getUniformLocation(program, "uResolution"),
+        uTime: gl.getUniformLocation(program, "uTime"),
+        uBrightness: gl.getUniformLocation(program, "uBrightness"),
+        uGlowColor: gl.getUniformLocation(program, "uGlowColor"),
+        uLineWidth: gl.getUniformLocation(program, "uLineWidth")
     }
 }
 
-initAsciiGlow({
-    canvasId: "canvas-shader",
-    glowColor: [67, 203, 148], // 43CB94
-    lineWidth: window.innerWidth > 900 ? 3 : 2
-})
+function resize(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2)
+    const width = Math.max(1, Math.floor(canvas.clientWidth * dpr))
+    const height = Math.max(1, Math.floor(canvas.clientHeight * dpr))
+    if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width
+        canvas.height = height
+        gl.viewport(0, 0, width, height)
+    }
+}
+
+const canvas = document.getElementById("canvas-shader") as HTMLCanvasElement
+const gl = canvas.getContext('webgl2')
+if (!gl) throw "WebGL2 non supporte"
+
+const { vao, uResolution, uBrightness, uGlowColor, uLineWidth, uTime } = setupContext(gl)
+const start = performance.now()
+const brightness = 0.1
+const glowColor = [67, 203, 148]
+const lineWidth =  window.innerWidth > 900 ? 3 : 2
+let intersecting = true
+
+function frame() {
+    resize(canvas, gl!)
+    const time = (performance.now() - start) / 1000
+
+    gl!.uniform2f(uResolution, canvas.width, canvas.height)
+    gl!.uniform1f(uTime, time)
+    gl!.uniform1f(uBrightness, brightness)
+    gl!.uniform3f(uGlowColor, glowColor[0], glowColor[1], glowColor[2])
+    gl!.uniform1f(uLineWidth, lineWidth)
+
+    gl!.clearColor(0.0, 0.0, 0.0, 0.0)
+    gl!.clear(gl!.COLOR_BUFFER_BIT)
+
+    gl!.bindVertexArray(vao)
+    gl!.drawArrays(gl!.TRIANGLES, 0, 6)
+
+    if(!intersecting) {
+        console.debug("[CANVAS] - Stopping, out of screen")
+        return
+    } 
+    requestAnimationFrame(frame)
+}
+
+const resizeObserver = new ResizeObserver(() => resize(canvas, gl))
+const intersectionObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+    if(entry.target.id !== "canvas-shader") return
+    if(entry.isIntersecting && !intersecting) {
+        console.debug("[CANVAS] - Starting, in screen")
+        requestAnimationFrame(frame)
+    }
+    intersecting = entry.isIntersecting
+}))
+
+resizeObserver.observe(canvas)
+intersectionObserver.observe(canvas)
+
+resize(canvas, gl)
+requestAnimationFrame(frame)
