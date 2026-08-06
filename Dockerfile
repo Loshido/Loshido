@@ -4,13 +4,13 @@ WORKDIR /vite
 
 RUN bun i
 RUN bun run build
-FROM oven/bun:latest AS ogp-banner
-COPY vite /vite
-COPY ogp /ogp
-WORKDIR /ogp
+# FROM oven/bun:latest AS ogp-banner
+# COPY vite /vite
+# COPY ogp /ogp
+# WORKDIR /ogp
 
-RUN bun i
-RUN bun run build
+# RUN bun i
+# RUN bun run build
 
 FROM clux/muslrust:stable AS chef
 USER root
@@ -33,9 +33,13 @@ FROM alpine:latest AS runtime
 WORKDIR /app
 
 COPY --from=web /dist /app/dist
-COPY --from=ogp-banner /ogp/dist/ogp-banner.webp /app/dist/
+# COPY --from=ogp-banner /ogp/dist/ogp-banner.webp /app/dist/
 COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/loshido /usr/local/bin/
 RUN mv /app/dist/routes/* /app/dist && rmdir /app/dist/routes
 
 EXPOSE 80
 CMD ["/usr/local/bin/loshido"]
+
+LABEL org.opencontainers.image.source="https://github.com/Loshido/Loshido"
+
+# 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
