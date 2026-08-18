@@ -1,3 +1,4 @@
+import { bind } from "cuelume"
 const main = document.querySelector('main') as HTMLElement
 const nav = document.querySelector('nav') as HTMLElement
 
@@ -7,9 +8,13 @@ const observer = new IntersectionObserver(entries => {
     for(const entry of entries) {
         const dot = dots.get(entry.target.id)
         if(!dot) continue
+        const inverted = entry.target.hasAttribute('data-nav-inverted')
 
         dot.classList.toggle('bg-accent', entry.isIntersecting)
         dot.classList.toggle('bg-black/5', !entry.isIntersecting)
+        dot.setAttribute('inverted', `${inverted && entry.isIntersecting}`)
+        document.body.style.backgroundColor = inverted && entry.isIntersecting 
+            ? 'var(--color-accent)' : 'unset' // for safari's new approach to ambiant color
     }
 }, {
     threshold: [0.5]
@@ -20,6 +25,8 @@ main.querySelectorAll('& > *').forEach(section => {
     const dot = document.createElement('a')
 
     dot.href = '#' + section.id
+    dot.setAttribute('data-cuelume-hover', 'tick')
+    dot.setAttribute('data-cuelume-press', 'pulse')
     dot.className = "w-2 h-2 sm:w-4 sm:h-4 hover:bg-black/25 rounded-full transition-colors"
 
     nav.appendChild(dot)
@@ -27,3 +34,4 @@ main.querySelectorAll('& > *').forEach(section => {
 
     observer.observe(section)
 }) 
+bind()

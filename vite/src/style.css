@@ -5,13 +5,13 @@
     src: url(/assets/fonts/Satoshi.ttf);
 }
 @font-face {
-    font-family: "Outfit";
-    src: url(/assets/fonts/Outfit.ttf);
+    font-family: "General";
+    src: url(/assets/fonts/GeneralSans.ttf);
 }
 
 @theme {
     --font-satoshi: "Satoshi";
-    --font-outfit: "Outfit";
+    --font-general: "General";
     --default-font-family: "Satoshi";
     --color-accent: #43CB94;
 }
@@ -19,6 +19,28 @@
 @custom-variant group-has-checked {
     &:is(:where(.group):has(:checked) *) {
         @slot;
+    }
+}
+
+
+html{
+    &::selection {
+        background-color: var(--color-accent);
+        color: #FFF;
+    }
+    &:has([inverted="true"])::selection {
+        background-color: #FFF;
+        color: var(--color-accent);
+    }
+}
+
+nav:has([inverted="true"]) > a {
+    background: #FFF4;
+    &:hover{
+        background: #FFF8;
+    }
+    &[inverted="true"] {
+        background: #0008;
     }
 }
 
@@ -52,9 +74,4 @@ a.anim {
         z-index: 10;
         color: #FFF;
     }
-}
-
-::selection{
-    background-color: var(--color-accent);
-    color: #FFF;
 }

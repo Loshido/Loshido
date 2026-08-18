@@ -32,9 +32,9 @@ RUN cargo build --release --target x86_64-unknown-linux-musl
 FROM alpine:latest AS runtime
 WORKDIR /app
 
+COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/loshido /usr/local/bin/
 COPY --from=web /dist /app/dist
 # COPY --from=ogp-banner /ogp/dist/ogp-banner.webp /app/dist/
-COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/loshido /usr/local/bin/
 RUN mv /app/dist/routes/* /app/dist && rmdir /app/dist/routes
 
 EXPOSE 80
