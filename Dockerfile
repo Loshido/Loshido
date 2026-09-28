@@ -27,7 +27,7 @@ COPY --from=planner /app/recipe.json recipe.json
 RUN cargo chef cook --release --target x86_64-unknown-linux-musl --recipe-path recipe.json
 COPY src src
 COPY Cargo.* .
-RUN cargo build --release --target x86_64-unknown-linux-musl
+RUN cargo build --release -F otel --target x86_64-unknown-linux-musl
 
 FROM alpine:latest AS runtime
 WORKDIR /app
@@ -41,5 +41,3 @@ EXPOSE 80
 CMD ["/usr/local/bin/loshido"]
 
 LABEL org.opencontainers.image.source="https://github.com/Loshido/Loshido"
-
-# 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
