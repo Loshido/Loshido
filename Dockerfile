@@ -31,7 +31,8 @@ WORKDIR /loshido-me
 COPY --from=web /web/dist ./dist
 COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/server /usr/local/bin/loshido-me
 
-EXPOSE 5173
-CMD ["/usr/local/bin/loshido.me"]
+ENV DIST_PATH=/loshido-me/dist
+EXPOSE 80
+CMD ["/usr/local/bin/loshido-me"]
 
 LABEL org.opencontainers.image.source https://github.com/Loshido/loshido
