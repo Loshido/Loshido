@@ -3,7 +3,7 @@
     "target": "es2023",
     "module": "esnext",
     "lib": ["DOM", "ESNext"],
-    "types": ["vite/client"],
+    "types": ["vite/client", "@webgpu/types"],
     "allowArbitraryExtensions": true,
     "skipLibCheck": true,
 

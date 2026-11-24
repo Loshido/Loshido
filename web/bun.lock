@@ -5,6 +5,8 @@
     "": {
       "name": "loshidome",
       "devDependencies": {
+        "ascii.rest": "^0.4.0",
+        "@webgpu/types": "0.1.74",
         "@tailwindcss/vite": "^4.3.4",
         "tailwindcss": "^4.3.4",
         "typescript": "~7.0.2",
@@ -126,6 +128,10 @@
     "@typescript/typescript-win32-arm64": ["@typescript/typescript-win32-arm64@7.0.2", "", { "os": "win32", "cpu": "arm64" }, "sha512-Gyl1Vy6OsWesLzmq+EP0Fb7b4Nid5232AvcA2SFcdYreldpNtYFFofPjnt62y9hQy7VTaZp65ICJjuAQRaVcIQ=="],
 
     "@typescript/typescript-win32-x64": ["@typescript/typescript-win32-x64@7.0.2", "", { "os": "win32", "cpu": "x64" }, "sha512-0BQ3HkAHHlKLSp1qRvf3SUhGpGsDuhB/jgFw75guyqbxJqEaS0Cw/VFO8i2nHglJUzQCRtMMR/IBAKE3ETMC4g=="],
+
+    "@webgpu/types": ["@webgpu/types@0.1.74", "", {}, "sha512-lgiI4hbuLcI9unnm2cL/tvCaQU45dp0xcLWJh5uB/9MBGvIA4F8XIk7nSiBeg+K4xWGYwgZKn80LmERI5CxoTA=="],
+
+    "ascii.rest": ["ascii.rest@0.4.0", "", { "peerDependencies": { "react": ">=18" }, "optionalPeers": ["react"], "bin": { "ascii.rest": "dist/cli.js" } }, "sha512-lqKcesbm3Ij5ENvgs/CTRWF3HrjAogOoMJdqOh8rlRmdzG3uRSyqS/3chfnjJfcIeqj69MWI8+NstMZ/Br9Ivw=="],
 
     "detect-libc": ["detect-libc@2.1.2", "", {}, "sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ=="],
 

@@ -1,1 +1,2 @@
 - open graph protocol
+- un mur avec du texte qui glisse (plusieurs lignes) avec des mentions des sujets qui m'intéresse (chinois, japonais, coréen, kubernetes, quic, wireguard, gpui, rust, container...)
